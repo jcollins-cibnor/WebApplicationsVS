@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+
+    <script type="text/javascript">
+        var path = document.location.pathname;
+        var dir = path.substring(path.indexOf('/', 1), path.lastIndexOf('/'));
+
+        var dir1 = path.substring(path.indexOf('/', 0), path.indexOf('/', 1));
+
+        var dir2 = path.substring(path.indexOf('/', 0), path.lastIndexOf('/'));
+
+        var dirf = path.substring(path.indexOf('/', path.lastIndexOf('/') - 1), path.lastIndexOf('/'));
+
+
+        var dirfull = path.substring(1, path.lastIndexOf('/'));
+        var dirlast = dirfull.substring(dirfull.lastIndexOf('/') + 1, dirfull.length);
+
+        alert(dirfull + "-" + dirlast);
+
+
+
+//        alert(path + ", dir: " + dir + ", dir1: " + dir1 + ", dir2: " + dir2 + ", dirf: " + dirf);
+        //        window.location.replace("./" + dir + ".aspx");
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+

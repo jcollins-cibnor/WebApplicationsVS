@@ -1,0 +1,254 @@
+﻿* {
+    margin:0px;
+    padding:0px;
+    border:none;
+    }
+
+#divContainer {
+    width:840px;
+    position:relative;
+    margin:0px auto;
+    }
+
+header {
+    background-color:#FFF;
+    text-align:center;
+    height:100px;
+    position:relative;
+    width:100%;
+    margin:10px auto;
+    border-bottom:1px solid #000;   
+    }
+    
+#divDatos, #divConfirmacion {
+    position:relative;
+    width:520px;
+    margin:5px auto;
+    padding:12px;
+/*    border:1px solid #CBC7BF;*/
+    background-color:#E0E1DD;
+    }
+    
+.logo {
+    height:60px;
+    width:auto;
+    position:absolute;
+    top:15px;
+    }
+    
+#logo_izq1 {
+    left:5%;
+    }
+
+#logo_centro {    
+    left:45%;
+    right:auto;
+    }
+
+#logo_der1 {
+    right:5%;
+    }
+    
+#divTitulo {
+    /*border:1px solid #000;*/
+    width:480px;
+    margin:10px auto;
+    text-align:center;
+    font-family:"Verdana";
+    font-weight:900;
+    font-size:1.2em;
+    padding-top:20px;
+    }
+
+#lblTitulo {
+    font-size:0.8em;
+}
+    
+#lblRegistroEnLinea {
+    font-family:"Verdana";
+    font-size:12px;
+    display:block;
+    }
+
+h2, h3 {
+     font-size: 1.2em;
+     font-family:Tahoma;
+     font-weight: bold;
+     text-align: center;
+     margin:2px auto;
+/*     font-variant:small-caps;*/
+     text-transform:lowercase;
+     }
+
+h3 {
+    font-family:Arial;
+    font-weight:500;
+    font-size: 0.9em;
+    text-align:left;
+    display:block;
+    border-bottom:2px solid #000;
+    padding:2px 4px;
+    font-variant:small-caps;
+}
+          
+table {
+    width:700px;
+    margin:0px auto;
+    position:relative;
+/*    border:1px solid #000;*/
+    }
+
+.inputLabel {
+    font-family:Verdana;
+    font-size:10px;
+    width:auto;
+    text-align:left;
+    margin-right:10px;
+    display:block;
+    }
+
+.textLabel {
+    font-family:Verdana;
+    font-size:10px;
+    width:auto;
+    text-align:justify;
+    margin:0px 10px;
+    display:block;
+    font-variant:normal;
+    }
+    
+.input, .input100w, .input200w, .input46percent {
+/*    border:1px solid #CBC7BF;*/
+    font-family:Verdana;
+    font-size:11px;
+    width:96%;
+    height:22px;
+    line-height:20px;
+    margin:2px 1%;
+    padding:0px 1%;
+    }
+
+.input100w {
+    width:100px;
+}
+
+.input200w {
+    width:200px;
+}
+
+.input46percent {
+    width:46%;
+    margin:2px 0% 2px 1%;
+}
+
+.inputTextArea, .inputRadio {
+/*    border:1px solid #CBC7BF;*/
+    font-family:Verdana;
+    font-size:11px;
+    width:auto;
+    margin:2px 1%;
+    padding:0px 1%;
+    }
+        
+.inputTextArea {
+/*    border:1px solid #CBC7BF;*/
+    font-family:Verdana;
+    font-size:11px;
+    width:96%;
+    margin:2px 1%;
+    padding:0px 1%;
+    }
+
+.inputButton {
+    border:1px solid #CCC;
+    font-family:Arial;
+    font-size:12px;
+    width:120px;
+    height:24px;
+    margin:0px 5px;
+    cursor:pointer;
+    }
+
+.divAdjuntarArchivo {
+    border:1px solid #CCC;
+    font-family:Verdana;
+    font-size:12px;
+    width:auto;
+    text-align:left;
+    margin:10px;
+    padding:5px;
+    display:block;
+
+}
+    
+#btnContinuar, #btnEnviar, #btnCancelar, #btnRegresar {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0px;
+}
+    
+#divButtons {
+/*    border:1px solid #CCC;*/
+    width:280px;
+    position:relative;
+    margin:0px auto; /* Centra el div en su contenedor, debe usarse junto con 'position:relative' */
+    text-align:center; /* Centra lo que tiene en su contenido el div */
+    }
+
+#lblConfirmacion {
+    font-family:Arial;
+    font-size:12px;
+    }
+    
+#lblStatusEnvio {
+    font-family:Verdana;
+    font-size:11px;
+    color:Blue;
+    font-weight:900;
+    }
+    
+ 
+p {
+    font-family:Verdana;
+    font-size:11px;
+    text-align:center;
+    font-variant:small-caps;
+    }
+    
+ footer p {
+    font-family:Verdana;
+    font-size:9px;
+    text-align:center;
+    border-top:1px solid #000;
+/*     background-color:#D8ECF3;*/
+    }
+    
+/* Estilos para probar el desplegado de informacion sobre el formulario opacando el resto
+*/
+
+#pHorario 
+{
+    cursor:pointer;
+    }
+
+.close {
+    position:absolute;
+    top:20px;
+    right:40px;
+    }
+    
+.close:hover {
+    cursor:pointer;
+    }
+    
+.photos 
+{
+    position:absolute;
+    top:25px;
+    border:5px solid #CBC7BF;
+    left:40px;
+    width:600px;
+    }
+/* EOF: Estilos para probar el desplegado de informacion sobre el formulario opacando el resto
+*/

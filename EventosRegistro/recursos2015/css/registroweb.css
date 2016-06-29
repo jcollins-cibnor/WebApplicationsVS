@@ -1,0 +1,173 @@
+﻿* {
+    margin:0px;
+    padding:0px;
+    border:none;
+    }
+
+#divContainer {
+    width:840px;
+    position:relative;
+    margin:0px auto;
+    }
+
+header {
+    border:1px solid #fff;
+    background-color:#FFF;
+    text-align:center;
+    height:100px;
+    position:relative;
+    width:100%;
+    margin:10px auto;
+    border-bottom:1px solid #000;   
+    }
+    
+.logo {
+    /*border:1px solid #aaa;*/
+    height:50px;
+    width:auto;
+    position:absolute;
+    top:20px;
+    }
+    
+#logo_izq1 {
+    left:5%;
+    }
+
+#logo_der1 {
+    right:5%;
+    }
+    
+#divTitulo {
+    /*border:1px solid #000;*/
+    width:480px;
+    margin:0 auto;
+    text-align:center;
+    font-family:"Verdana";
+    margin-top:20px;
+    }
+
+#lblTitulo {
+    font-size:1.1em;
+    font-weight:900;
+    margin:5px auto;
+}
+    
+#lblRegistroEnLinea {
+    font-size:.9em;
+    }
+    
+#divDatos, #divConfirmacion {
+    position:relative;
+    width:520px;
+    margin:5px auto;
+    padding:12px;
+/*    border:1px solid #CBC7BF;*/
+    background-color:#E0E1DD;
+    }
+
+h2, h3, h4 {
+     /*font-size: 1em;*/
+     font-family:Tahoma;
+     font-weight: bold;
+     text-align: center;
+     margin:2px auto;
+     font-variant:small-caps;
+/*     text-transform:lowercase;
+*/     }
+          
+table {
+    width:700px;
+    margin:0px auto;
+    position:relative;
+/*    border:1px solid #000;*/
+    }
+
+.inputLabel {
+    font-family:Verdana;
+    font-size:10px;
+    width:auto;
+    text-align:left;
+    margin-right:10px;
+    display:block;
+    }
+    
+.input {
+/*    border:1px solid #CBC7BF;*/
+    font-family:Verdana;
+    font-size:11px;
+    width:96%;
+    height:22px;
+    line-height:20px;
+    margin:2px 1%;
+    padding:0px 1%;
+    }
+
+.inputTextArea, .inputRadio {
+/*    border:1px solid #CBC7BF;*/
+    font-family:Verdana;
+    font-size:11px;
+    width:auto;
+    margin:2px 1%;
+    padding:0px 1%;
+    }
+        
+.inputTextArea {
+/*    border:1px solid #CBC7BF;*/
+    font-family:Verdana;
+    font-size:11px;
+    width:96%;
+    margin:2px 1%;
+    padding:0px 1%;
+    }
+
+.inputButton {
+    border:1px solid #CCC;
+    font-family:Arial;
+    font-size:12px;
+    width:120px;
+    height:24px;
+    margin:0px 5px;
+    cursor:pointer;
+    }
+    
+#btnContinuar, #btnEnviar, #btnCancelar, #btnRegresar {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0px;
+}
+    
+#divButtons {
+/*    border:1px solid #CCC;*/
+    width:280px;
+    position:relative;
+    margin:0px auto; /* Centra el div en su contenedor, debe usarse junto con 'position:relative' */
+    text-align:center; /* Centra lo que tiene en su contenido el div */
+    }
+    
+#lblConfirmacion, #lblStatus {
+    font-family:Verdana;
+    font-size:12px;
+    color:#44f;
+    font-weight:900;
+    }
+
+#lblStatus {
+    color:#ff0000;
+    display:block;
+    margin:10px 100px;
+    }
+
+p {
+    text-align:center;
+    font-variant:small-caps;
+    }
+
+footer {
+    border-top:1px solid #000;
+}    
+
+ footer p {
+    font-family:Verdana;
+    font-size:9px;
+    }
