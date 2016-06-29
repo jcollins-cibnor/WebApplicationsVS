@@ -16,7 +16,23 @@ public partial class renanp2016_renanp2016 : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+        #region Validacion del navegador
+        System.Web.HttpBrowserCapabilities browser = Request.Browser;
+
+        double jsVersion = Convert.ToDouble(browser["JavaScriptVersion"]);
+        if (jsVersion >= 1.11)
+        {
+            // lblStatus.Text = jsVersion.ToString();
+            // Response.Write("Ok");
+        }
+        else
+        {
+            // Redireccionamos a la pagina donde le avisa la obsolecencia
+            Response.Redirect("~/BrowserCapabilities.html");
+        }
+        #endregion
+
+
         var tipoRegistro = Request.QueryString["id"]; // Este dato lo obtenemos del parametro en la URL
 
         switch (tipoRegistro) {
