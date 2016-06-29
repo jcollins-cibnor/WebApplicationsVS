@@ -250,8 +250,8 @@ public partial class renanp2016_renanp2016 : System.Web.UI.Page
         mensaje = mensaje.Replace("\n", "<br />");
 
         // MANDAMOS EL CORREO
-       // Opb.enviarCorreo("-", "-", txtCorreo.Text, correoAlias, "-", correoSubject, mensaje, "normal");
-        Opb.enviarCorreo("-", "-", "jcollins@cibnor.mx", "-", "-", correoSubject, mensaje, "normal");
+       //Opb.enviarCorreo("-", "-", txtCorreo.Text, correoAlias, "-", correoSubject, mensaje, "normal");
+        Opb.enviarCorreo("-", "-", "jcollins@cibnor.mx", "-", "-", correoSubject, mensaje, "normal"); // para pruebas
 
         Response.Redirect("~/RegistroOk.aspx?evento=renanp2016");
 

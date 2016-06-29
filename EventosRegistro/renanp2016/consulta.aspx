@@ -78,8 +78,9 @@
     </div>
     <asp:SqlDataSource ID="SqlDSgeneral" runat="server" ConnectionString="<%$ ConnectionStrings:REGWEBConnectionString %>" SelectCommand="SELECT * FROM [renanpTaller]">
     </asp:SqlDataSource>
-    <asp:GridView ID="grvConsultaCongreso3a" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlDScongreso3a" Visible="False">
+    <asp:GridView ID="grvConsultaCongreso3a" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlDScongreso3a" Visible="False" OnSelectedIndexChanged="grvConsultaCongreso3a_SelectedIndexChanged">
         <Columns>
+            <asp:CommandField SelectText="Ver" ShowSelectButton="True" />
             <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
             <asp:BoundField DataField="nombre" HeaderText="nombre" SortExpression="nombre" />
             <asp:BoundField DataField="correo" HeaderText="correo" SortExpression="correo" />

@@ -22,8 +22,8 @@ public partial class renanp2016_consulta : System.Web.UI.Page
                 break;
             case "3a":
             default:
-                lblEventoId.Text = "renanpCongreso3a";
-                SqlDScongreso3a.SelectCommand = "SELECT * FROM [" + lblEventoId.Text + "]";
+                lblEventoId.Text = "renanpCongreso";
+                SqlDScongreso3a.SelectCommand = "SELECT * FROM [renanpCongreso3a]";
                 grvConsultaCongreso3a.Visible = true;
                 // FALTA AGREGAR LOS LINKS PARA VISUALIZAR EL COMPROBANTE DE PAGO Y LA CREDENCIAL, SI ES QUE LA INCLUYO EL PARTICIPANTE
                 break;
@@ -32,7 +32,17 @@ public partial class renanp2016_consulta : System.Web.UI.Page
     }
     protected void btnExportar_Click(object sender, EventArgs e)
     {
-        exportarExcel(grvConsulta);
+        var tipoRegistro = Request.QueryString["id"]; // Este dato lo obtenemos del parametro en la URL
+        switch (tipoRegistro)
+        {
+            case "1a":
+                exportarExcel(grvConsulta);
+                break;
+            case "3a":
+            default:
+                exportarExcel(grvConsultaCongreso3a);
+                break;
+        }
     }
 
     protected void exportarExcel(GridView nomGV)
@@ -64,4 +74,14 @@ public partial class renanp2016_consulta : System.Web.UI.Page
         Response.Redirect(Convert.ToString(Session["liga"]));
 
     }
+    protected void grvConsultaCongreso3a_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        Session["liga"] = "./uploads/" + grvConsultaCongreso3a.SelectedRow.Cells[3].Text + ".pdf";
+        Response.Redirect(Convert.ToString(Session["liga"]));
+
+
+//        Session["ligaC"] = "./uploads/" + grvConsultaCongreso3a.SelectedRow.Cells[3].Text + "_credencial.pdf";
+        //Response.Redirect(Convert.ToString(Session["ligaC"]));
+    }
+
 }
