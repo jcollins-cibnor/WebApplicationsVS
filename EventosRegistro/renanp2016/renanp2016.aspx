@@ -144,7 +144,7 @@
                 </div>
 
                 <br />
-                <asp:TextBox ID="txtComentarios" class="inputTextArea" runat="server" MaxLength="1000" TextMode="MultiLine" Rows="4" 
+                <asp:TextBox ID="txtComentarios" class="inputTextArea" runat="server" MaxLength="50" TextMode="MultiLine" Rows="4" 
                     placeholder="Comentarios adicionales..." />
                 <br />
                 <br />

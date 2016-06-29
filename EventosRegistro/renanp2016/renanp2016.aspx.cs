@@ -236,7 +236,7 @@ public partial class renanp2016_renanp2016 : System.Web.UI.Page
         }
 
         //lblStatus.Text = "Prueba de correo realizada con exito!"; // para pruebas
-
+        //lblStatus.Text = SqlDSregistro.InsertCommand;
         SqlDSregistro.Insert();
 
         //ARMAR CUERPO DEL MENSAJE
