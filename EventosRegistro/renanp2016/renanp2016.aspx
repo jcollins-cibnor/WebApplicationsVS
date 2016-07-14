@@ -119,14 +119,11 @@
 
                     <br />
                     <br />
-                    <asp:DropDownList ID="ddlPago" CssClass="input200w" runat="server" >
-                        <asp:ListItem Value="...">Opciones de pago...</asp:ListItem>
-                        <asp:ListItem>Op 1</asp:ListItem>
-                        <asp:ListItem>Op 2</asp:ListItem>
-                        <asp:ListItem>Op 3</asp:ListItem>
-                        <asp:ListItem>Op 4</asp:ListItem>
-                        <asp:ListItem>Op 5</asp:ListItem>
-                        <asp:ListItem>Op 6</asp:ListItem>
+                    <asp:DropDownList ID="ddlPago" CssClass="input" runat="server" style="font-family:Consolas;" >
+                        <asp:ListItem Value="...">Opciones de pago (hasta el 15 de septiembre):</asp:ListItem>
+                        <asp:ListItem>Estudiante licenciatura - $1,000.00</asp:ListItem>
+                        <asp:ListItem>Estudiante posgrado ----- $1,300.00</asp:ListItem>
+                        <asp:ListItem>Profesionista ----------- $3,000.00</asp:ListItem>
                     </asp:DropDownList>
                     <p class="inputLabel">Adjuntar comprobante del pago (archivo PDF, maximo 2MB):</p>
                     <input type="file" class="inputFile" name="adjuntar" id="fuAdjuntoPago" runat="server" accept=".pdf" />

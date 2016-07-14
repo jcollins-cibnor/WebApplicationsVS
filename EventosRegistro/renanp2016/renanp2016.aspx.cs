@@ -42,13 +42,14 @@ public partial class renanp2016_renanp2016 : System.Web.UI.Page
                 break;
             case "3a": 
             default:
-                tipoRegistro = "3a";
                 lblTituloPrincipal.Text = "Congreso RENANP 2016";
                 div3a.Attributes.Remove("hidden");
+                tipoRegistro = "3a";
                 break;
         }
         txtType.Text = tipoRegistro;
         hlkConsulta.NavigateUrl += "?id=" + tipoRegistro;
+//        lblStatus.Text = txtType.Text;
     }
 
     protected void btnEnviar_Click(object sender, EventArgs e)
@@ -58,6 +59,8 @@ public partial class renanp2016_renanp2016 : System.Web.UI.Page
         var correoAlias = "";
         var correoSubject = "";
 
+        //lblStatus.Text += txtType.Text;
+        //lblStatus.Text += "-antes del switch.";
         switch (txtType.Text)
         {             
             #region Taller en Julio
@@ -167,25 +170,29 @@ public partial class renanp2016_renanp2016 : System.Web.UI.Page
 
             #region Congreso en Noviembre, participantes que pagan
             case "3a":
+            default:
+//                lblStatus.Text += "-dentro 3a.";
                 string fileUploadPago = "";
                 string fileUploadCredencial = "";
-                if (fuAdjuntoPago.Value.Length > 3)
-                {
-                    fileUploadPago = Opb.adjuntarArchivo(fuAdjuntoPago, "~/renanp2016/uploads", txtCorreo.Text);
-                }
-                if (fuAdjuntoCredencial.Value.Length > 3)
-                {
-                    fileUploadCredencial = Opb.adjuntarArchivo(fuAdjuntoCredencial, "~/renanp2016/uploads", txtCorreo.Text + "_credencial");
-                }
-
-                if (fileUploadPago != "ok" || fileUploadCredencial != "ok") {
-                    break;
-                }
 
                 string estudiante = "NO";
                 if (chkEstudiante.Checked) { estudiante = "SI"; }
                 string factura = "NO";
                 if (chkFactura.Checked) { factura = "SI"; }
+
+                if (fuAdjuntoPago.Value.Length > 3) {
+                    fileUploadPago = Opb.adjuntarArchivo(fuAdjuntoPago, "~/renanp2016/uploads", txtCorreo.Text);
+                }
+
+                if ((fuAdjuntoCredencial.Value.Length > 3) && (estudiante == "SI"))
+                {
+                    fileUploadCredencial = Opb.adjuntarArchivo(fuAdjuntoCredencial, "~/renanp2016/uploads", txtCorreo.Text + "_credencial");
+                }
+
+//                if (fileUploadPago != "ok" || fileUploadCredencial != "ok") {
+//                    lblStatus.Text += "-error al subir algun archivo.";
+//                    break;
+//                }
 
                 lblHiddenMensaje.Text =
                     "Nombre completo: " + txtNombre.Text + '\n' +
@@ -227,16 +234,14 @@ public partial class renanp2016_renanp2016 : System.Web.UI.Page
 
                     txtComentarios.Text + "', GetDate())";
 
-                correoAlias = "jcollins@cibnor.mx"; // "congreso-renanp@cibnor.mx";
+                correoAlias = "congreso-renanp@cibnor.mx";
                 correoSubject = "Congreso RENANP 2016 - Registro en linea";
                 break;
             #endregion
-            default:
-                break;
         }
 
         //lblStatus.Text = "Prueba de correo realizada con exito!"; // para pruebas
-        //lblStatus.Text = SqlDSregistro.InsertCommand;
+        //lblStatus.Text += SqlDSregistro.InsertCommand;
         SqlDSregistro.Insert();
 
         //ARMAR CUERPO DEL MENSAJE
@@ -250,8 +255,7 @@ public partial class renanp2016_renanp2016 : System.Web.UI.Page
         mensaje = mensaje.Replace("\n", "<br />");
 
         // MANDAMOS EL CORREO
-       //Opb.enviarCorreo("-", "-", txtCorreo.Text, correoAlias, "-", correoSubject, mensaje, "normal");
-        Opb.enviarCorreo("-", "-", "jcollins@cibnor.mx", "-", "-", correoSubject, mensaje, "normal"); // para pruebas
+        Opb.enviarCorreo("-", "-", txtCorreo.Text, correoAlias, "-", correoSubject, mensaje, "normal");
 
         Response.Redirect("~/RegistroOk.aspx?evento=renanp2016");
 
