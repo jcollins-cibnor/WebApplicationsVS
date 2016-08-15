@@ -28,6 +28,11 @@ header {
 /*    border:1px solid #CBC7BF;*/
     background-color:#E0E1DD;
     }
+
+.required {
+    /*border:1px solid red;*/
+    background-color:#cccedb;
+}
     
 .logo {
     height:60px;

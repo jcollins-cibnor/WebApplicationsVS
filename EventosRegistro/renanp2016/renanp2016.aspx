@@ -29,13 +29,19 @@
         <h2 id="lblRegistroEnLinea">Registro en L&iacute;nea</h2>
     </header>
 
+    <div id="divMensajeFijo"
+        style="border:1px solid red; position:fixed; top:120px; right:8%; width:150px; line-height:20px; padding:4px; background-color:white; z-index:100;">
+        <p class="required">Campos requeridos</p>
+        <p >Si no aplica ingrese "NA"</p>
+    </div>
+
     <form id="form1" runat="server" enctype="multipart/form-data" >
         <section id="sec1Datos">
             <div id="divDatos">
                 <h3>DATOS GENERALES</h3>
-                <asp:TextBox ID="txtNombre" class="input" runat="server" MaxLength="100" placeholder="Nombre completo..." />
-                <asp:TextBox ID="txtCorreo" class="input46percent" runat="server" MaxLength="50" placeholder="Correo electr&oacute;nico..." />
-                <asp:TextBox ID="txtCorreoConfirma" class="input46percent" runat="server" MaxLength="50" placeholder="Confirmaci&oacute;n de correo electr&oacute;nico..." />
+                <asp:TextBox ID="txtNombre" class="input required" runat="server" MaxLength="100" placeholder="Nombre completo..." />
+                <asp:TextBox ID="txtCorreo" class="input46percent required" runat="server" MaxLength="50" placeholder="Correo electr&oacute;nico..." />
+                <asp:TextBox ID="txtCorreoConfirma" class="input46percent required" runat="server" MaxLength="50" placeholder="Confirmaci&oacute;n de correo electr&oacute;nico..." />
                 <asp:TextBox ID="txtInstitucion" class="input" runat="server" MaxLength="200" placeholder="Nombre de la instituci&oacute;n..." />
                 <br />
                 <br />
@@ -94,11 +100,73 @@
                     </div>
 
                 </div>
+                <%--Curso en Septiembre--%>
+                <div id="div2a" runat="server" hidden="hidden">
+                    <div id="divCTraslado" style="border:solid 1px gray;">
+                    
+                        <h4 style="text-align:center;">Itinerario</h4>
+                        <asp:RadioButtonList ID="rblCTraslado" class="input" runat="server" RepeatDirection="Vertical" style="margin-top:4px;">
+                            <asp:ListItem Value="no"> Me trasladar&eacute; por cuenta propia</asp:ListItem>
+                            <asp:ListItem Value="si" Selected="True"> Requiero traslado aereo</asp:ListItem>
+                            <asp:ListItem Value="sb"> Me trasladar&eacute; por autobus</asp:ListItem>
+                        </asp:RadioButtonList>
+                        <div id="divCItinerarios" style="text-align:center;">
+                            <p class="inputLabel">VIAJE DE IDA</p>
+                            <asp:Label ID="lblCVueloSalida1" class="input100w" runat="server" Text="Vuelo inicial >" Font-Bold="True" Width="100px"></asp:Label>
+                            <asp:TextBox ID="txtCSalidaOrigen1" class="input100w required" runat="server" MaxLength="50" placeholder="Origen: " />
+                            <asp:TextBox ID="txtCSalidaDestino1" class="input100w" runat="server" MaxLength="50" placeholder="Destino: " />
+                            <asp:TextBox ID="txtCSalidaAerolinea1" class="input100w" runat="server" MaxLength="50" placeholder="Aerolinea: " />
+                            <asp:TextBox ID="txtCSalidaNoVuelo1" class="input100w required" runat="server" MaxLength="50" placeholder="No. de Vuelo: " />
+                            <asp:TextBox ID="txtCSalidaFecha1" class="input100w required" runat="server" MaxLength="50" placeholder="Fecha: " />
+                            <asp:TextBox ID="txtCSalidaHora1" class="input100w required" runat="server" MaxLength="50" placeholder="Hora de salida: " />
+                            <asp:TextBox ID="txtCSalidaHoraLlegada1" class="input100w" runat="server" MaxLength="50" placeholder="Hora de llegada: " />
+                            <br />
+                            <asp:Label ID="lblCVueloSalida2" class="input100w" runat="server" Text="Vuelo escala >" Font-Bold="True" Width="100px"></asp:Label>
+                            <asp:TextBox ID="txtCSalidaOrigen2" class="input100w" runat="server" MaxLength="50" placeholder="Origen: " />
+                            <asp:TextBox ID="txtCSalidaDestino2" class="input100w" runat="server" MaxLength="50" placeholder="Destino: " />
+                            <asp:TextBox ID="txtCSalidaAerolinea2" class="input100w" runat="server" MaxLength="50" placeholder="Aerolinea: " />
+                            <asp:TextBox ID="txtCSalidaNoVuelo2" class="input100w" runat="server" MaxLength="50" placeholder="No. de Vuelo: " />
+                            <asp:TextBox ID="txtCSalidaFecha2" class="input100w" runat="server" MaxLength="50" placeholder="Fecha: " />
+                            <asp:TextBox ID="txtCSalidaHora2" class="input100w" runat="server" MaxLength="50" placeholder="Hora de salida: " />
+                            <asp:TextBox ID="txtCSalidaHoraLlegada2" class="input100w" runat="server" MaxLength="50" placeholder="Hora de llegada: " />
+
+                            <br /><br />
+                            <p class="inputLabel">VIAJE DE REGRESO</p>
+                            <asp:Label ID="lblCVueloRegreso1" class="input100w" runat="server" Text="Vuelo inicial >" Font-Bold="True" Width="100px"></asp:Label>
+                            <asp:TextBox ID="txtCRegresoOrigen1" class="input100w required" runat="server" MaxLength="50" placeholder="Origen: " />
+                            <asp:TextBox ID="txtCRegresoDestino1" class="input100w" runat="server" MaxLength="50" placeholder="Destino: " />
+                            <asp:TextBox ID="txtCRegresoAerolinea1" class="input100w" runat="server" MaxLength="50" placeholder="Aerolinea: " />
+                            <asp:TextBox ID="txtCRegresoNoVuelo1" class="input100w required" runat="server" MaxLength="50" placeholder="No. de Vuelo: " />
+                            <asp:TextBox ID="txtCRegresoFecha1" class="input100w required" runat="server" MaxLength="50" placeholder="Fecha: " />
+                            <asp:TextBox ID="txtCRegresoHora1" class="input100w required" runat="server" MaxLength="50" placeholder="Hora de salida: " />
+                            <asp:TextBox ID="txtCRegresoHoraLlegada1" class="input100w" runat="server" MaxLength="50" placeholder="Hora de llegada: " />
+                            <br />
+                            <asp:Label ID="lblCVueloRegreso2" class="input100w" runat="server" Text="Vuelo escala >" Font-Bold="True" Width="100px"></asp:Label>
+                            <asp:TextBox ID="txtCRegresoOrigen2" class="input100w" runat="server" MaxLength="50" placeholder="Origen: " />
+                            <asp:TextBox ID="txtCRegresoDestino2" class="input100w" runat="server" MaxLength="50" placeholder="Destino: " />
+                            <asp:TextBox ID="txtCRegresoAerolinea2" class="input100w" runat="server" MaxLength="50" placeholder="Aerolinea: " />
+                            <asp:TextBox ID="txtCRegresoNoVuelo2" class="input100w" runat="server" MaxLength="50" placeholder="No. de Vuelo: " />
+                            <asp:TextBox ID="txtCRegresoFecha2" class="input100w" runat="server" MaxLength="50" placeholder="Fecha: " />
+                            <asp:TextBox ID="txtCRegresoHora2" class="input100w" runat="server" MaxLength="50" placeholder="Hora de salida: " />
+                            <asp:TextBox ID="txtCRegresoHoraLlegada2" class="input100w" runat="server" MaxLength="50" placeholder="Hora de llegada: " />
+                                                        
+                            <br />&nbsp;
+                        </div>
+                        <div id="divCRuta" style="text-align:center;">
+                            <asp:Label ID="lblRuta" class="input100w" runat="server" Text="Ruta >" Font-Bold="True" Width="100px"></asp:Label>
+                            <asp:TextBox ID="txtCRutaOrigen" class="input30percent required" runat="server" MaxLength="50" placeholder="Lugar de origen: " />
+                            <asp:TextBox ID="txtCRutaHoraLlegada" class="input30percent required" runat="server" MaxLength="50" placeholder="Hora de llegada: " />
+                            <br />&nbsp;
+
+                        </div>
+                    </div>
+
+                </div>
 
                 <%--Congreso en Noviembre, participantes que pagan --%>
                 <div id="div3a" runat="server" hidden="hidden">
                     
-                    <asp:DropDownList ID="ddlModalidad" CssClass="input200w" runat="server" >
+                    <asp:DropDownList ID="ddlModalidad" CssClass="input200w required" runat="server" >
                         <asp:ListItem Value="...">Modalidad de presentaci&oacute;n...</asp:ListItem>
                         <asp:ListItem>Oral</asp:ListItem>
                         <asp:ListItem>Poster</asp:ListItem>
@@ -110,38 +178,38 @@
                     </p>
                     <div id="divEstudiante" hidden="hidden">
                         <p class="inputLabel">Adjuntar credencial de estudiante (por ambos lados, PDF, maximo 2MB):</p>
-                        <input type="file" class="inputFile" name="adjuntar" id="fuAdjuntoCredencial" runat="server" accept=".pdf" />
+                        <input type="file" class="inputFile required" name="adjuntar" id="fuAdjuntoCredencial" runat="server" accept=".pdf" />
                     </div>
 
-                    <asp:TextBox ID="txtTituloResumen" class="input" runat="server" MaxLength="400" placeholder="Titulo de su resumen..." />
+                    <asp:TextBox ID="txtTituloResumen" class="input required" runat="server" MaxLength="400" placeholder="Titulo de su resumen..." />
                     <asp:TextBox ID="txtAutores" class="input" runat="server" MaxLength="400" placeholder="Autor(es)..." />
                     <asp:TextBox ID="txtCoAutores" class="input" runat="server" MaxLength="400" placeholder="Co autor(es)..." />
 
                     <br />
                     <br />
-                    <asp:DropDownList ID="ddlPago" CssClass="input" runat="server" style="font-family:Consolas;" >
+                    <asp:DropDownList ID="ddlPago" CssClass="input required" runat="server" style="font-family:Consolas;" >
                         <asp:ListItem Value="...">Opciones de pago (hasta el 15 de septiembre):</asp:ListItem>
                         <asp:ListItem>Estudiante licenciatura - $1,000.00</asp:ListItem>
                         <asp:ListItem>Estudiante posgrado ----- $1,300.00</asp:ListItem>
                         <asp:ListItem>Profesionista ----------- $3,000.00</asp:ListItem>
                     </asp:DropDownList>
                     <p class="inputLabel">Adjuntar comprobante del pago (archivo PDF, maximo 2MB):</p>
-                    <input type="file" class="inputFile" name="adjuntar" id="fuAdjuntoPago" runat="server" accept=".pdf" />
+                    <input type="file" class="inputFile required" name="adjuntar" id="fuAdjuntoPago" runat="server" accept=".pdf" />
 
                     <p class="inputLabel" style="font-weight:900;">
                         <asp:CheckBox ID="chkFactura" runat="server" Text=" - Requiero factura" /> 
                         <br />
                     </p>
                     <div id="divFacturacion">
-                        <asp:TextBox ID="txtFacturaRfc" class="input" runat="server" MaxLength="20" placeholder="RFC..." />
-                        <asp:TextBox ID="txtFacturaNombre" class="input" runat="server" MaxLength="200" placeholder="Nombre a facturar..." />
-                        <asp:TextBox ID="txtDomicilio" class="input" runat="server" MaxLength="200" placeholder="Domicilio..." />
+                        <asp:TextBox ID="txtFacturaRfc" class="input required" runat="server" MaxLength="20" placeholder="RFC..." />
+                        <asp:TextBox ID="txtFacturaNombre" class="input required" runat="server" MaxLength="200" placeholder="Nombre a facturar..." />
+                        <asp:TextBox ID="txtDomicilio" class="input required" runat="server" MaxLength="200" placeholder="Domicilio..." />
                     </div>
 
                 </div>
 
                 <br />
-                <asp:TextBox ID="txtComentarios" class="inputTextArea" runat="server" MaxLength="50" TextMode="MultiLine" Rows="4" 
+                <asp:TextBox ID="txtComentarios" class="inputTextArea" runat="server" MaxLength="1000" TextMode="MultiLine" Rows="4" 
                     placeholder="Comentarios adicionales..." />
                 <br />
                 <br />
@@ -186,7 +254,7 @@
 
 <!-- MENSAJE DE ESPERA -->
 <div id="divMensajeEspera" 
-    style="height:300px; width:70%; left:15%; position:absolute; top:30%; margin:1px; border:1px solid #000; background-color:white; text-align:center;">    
+    style="height:300px; width:70%; left:15%; position:fixed; top:30%; margin:1px; border:1px solid #000; background-color:white; text-align:center;">    
 
     <p style="display:block; height:50%; line-height:150px; font-family:Consolas, Arial; font-variant:normal; font-size:24px; background-color:#000; color:#FFF;">
         <b>Por favor, espere unos momentos...</b>
