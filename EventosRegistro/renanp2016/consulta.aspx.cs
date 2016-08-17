@@ -20,12 +20,16 @@ public partial class renanp2016_consulta : System.Web.UI.Page
                 SqlDSgeneral.SelectCommand = "SELECT * FROM [" + lblEventoId.Text + "]";
                 grvConsulta.Visible = true;
                 break;
+            case "2a":
+                lblEventoId.Text = "renanpCurso";
+                SqlDSgeneral.SelectCommand = "SELECT * FROM [" + lblEventoId.Text + "]";
+                grvConsultaCongreso2a.Visible = true;
+                break;
             case "3a":
             default:
                 lblEventoId.Text = "renanpCongreso";
                 SqlDScongreso3a.SelectCommand = "SELECT * FROM [renanpCongreso3a]";
                 grvConsultaCongreso3a.Visible = true;
-                // FALTA AGREGAR LOS LINKS PARA VISUALIZAR EL COMPROBANTE DE PAGO Y LA CREDENCIAL, SI ES QUE LA INCLUYO EL PARTICIPANTE
                 break;
         }
 
@@ -37,6 +41,9 @@ public partial class renanp2016_consulta : System.Web.UI.Page
         {
             case "1a":
                 exportarExcel(grvConsulta);
+                break;
+            case "2a":
+                exportarExcel(grvConsultaCongreso2a);
                 break;
             case "3a":
             default:
@@ -82,6 +89,19 @@ public partial class renanp2016_consulta : System.Web.UI.Page
 
 //        Session["ligaC"] = "./uploads/" + grvConsultaCongreso3a.SelectedRow.Cells[3].Text + "_credencial.pdf";
         //Response.Redirect(Convert.ToString(Session["ligaC"]));
+    }
+    protected void grvConsultaCongreso3a_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        if (e.Row.RowType == DataControlRowType.DataRow)
+        {
+            var cellCorreo = e.Row.Cells[3];
+            var cellEstudiante = e.Row.Cells[6];
+            if (cellEstudiante.Text == "SI")
+            { 
+                cellEstudiante.Controls.Clear();
+                cellEstudiante.Controls.Add(new HyperLink { NavigateUrl = "./uploads/" + cellCorreo.Text + "_credencial.pdf", Text = cellEstudiante.Text });
+            }
+        }
     }
 
 }
