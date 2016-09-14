@@ -44,6 +44,11 @@ public partial class renanp2016_renanp2016 : System.Web.UI.Page
                 lblTituloPrincipal.Text = "Curso RENANP 2016";
                 div2a.Attributes.Remove("hidden");
                 break;
+            case "3b":
+                lblTituloPrincipal.Text = "Congreso RENANP 2016";
+                div3b.Attributes.Remove("hidden");
+                tipoRegistro = "3b";
+                break;
             case "3a": 
             default:
                 lblTituloPrincipal.Text = "Congreso RENANP 2016";
@@ -295,7 +300,7 @@ public partial class renanp2016_renanp2016 : System.Web.UI.Page
                 break;
             #endregion
 
-            #region Congreso en Noviembre, participantes que pagan
+            #region Congreso en Noviembre, participantes que pagan (3a)
             case "3a":
             default:
 //                lblStatus.Text += "-dentro 3a.";
@@ -365,6 +370,127 @@ public partial class renanp2016_renanp2016 : System.Web.UI.Page
                 correoSubject = "Congreso RENANP 2016 - Registro en linea";
                 break;
             #endregion
+
+            #region Congreso en Nov, invitados y staff (3b)
+            case "3b":
+                lblHiddenMensaje.Text =
+                    "- DATOS GENERALES" + '\n' +
+                    '\n' +
+                    "Nombre completo: " + txtNombre.Text + '\n' +
+                    "Correo electr&oacute;nico: " + txtCorreo.Text + '\n' +
+                    "Instituci&oacute;n: " + txtInstitucion.Text + '\n' +
+                    '\n' +
+                    "- ITINERARIO" + '\n' +
+                    "Traslado: " + rblCOTraslado.SelectedItem.Text + '\n' +
+                    '\n';
+
+                var datosCOTraslado = "";
+                if (rblCOTraslado.SelectedValue == "si")
+                {
+                    datosCOTraslado =
+                    "-- VIAJE DE IDA --" + '\n' + '\n' +
+                    lblCOVueloSalida1.Text + '\n' +
+                    txtCOSalidaOrigen1.Attributes["placeholder"] + txtCOSalidaOrigen1.Text + " - " +
+                    txtCOSalidaDestino1.Attributes["placeholder"] + txtCOSalidaDestino1.Text + " - " +
+                    txtCOSalidaAerolinea1.Attributes["placeholder"] + txtCOSalidaAerolinea1.Text + " - " +
+                    txtCOSalidaNoVuelo1.Attributes["placeholder"] + txtCOSalidaNoVuelo1.Text + '\n' +
+                    txtCOSalidaFecha1.Attributes["placeholder"] + txtCOSalidaFecha1.Text + " - " +
+                    txtCOSalidaHora1.Attributes["placeholder"] + txtCOSalidaHora1.Text + " - " +
+                    txtCOSalidaHoraLlegada1.Attributes["placeholder"] + txtCOSalidaHoraLlegada1.Text + '\n' +
+                    '\n' +
+                    lblCOVueloSalida2.Text + '\n' +
+                    txtCOSalidaOrigen2.Attributes["placeholder"] + txtCOSalidaOrigen2.Text + " - " +
+                    txtCOSalidaDestino2.Attributes["placeholder"] + txtCOSalidaDestino2.Text + " - " +
+                    txtCOSalidaAerolinea2.Attributes["placeholder"] + txtCOSalidaAerolinea2.Text + " - " +
+                    txtCOSalidaNoVuelo2.Attributes["placeholder"] + txtCOSalidaNoVuelo2.Text + '\n' +
+                    txtCOSalidaFecha2.Attributes["placeholder"] + txtCOSalidaFecha2.Text + " - " +
+                    txtCOSalidaHora2.Attributes["placeholder"] + txtCOSalidaHora2.Text + " - " +
+                    txtCOSalidaHoraLlegada2.Attributes["placeholder"] + txtCOSalidaHoraLlegada2.Text + '\n' +
+                    '\n' +
+                    "-- VIAJE DE REGRESO --" + '\n' + '\n' +
+                    lblCOVueloRegreso1.Text + '\n' +
+                    txtCORegresoOrigen1.Attributes["placeholder"] + txtCORegresoOrigen1.Text + " - " +
+                    txtCORegresoDestino1.Attributes["placeholder"] + txtCORegresoDestino1.Text + " - " +
+                    txtCORegresoAerolinea1.Attributes["placeholder"] + txtCORegresoAerolinea1.Text + " - " +
+                    txtCORegresoNoVuelo1.Attributes["placeholder"] + txtCORegresoNoVuelo1.Text + '\n' +
+                    txtCORegresoFecha1.Attributes["placeholder"] + txtCORegresoFecha1.Text + " - " +
+                    txtCORegresoHora1.Attributes["placeholder"] + txtCORegresoHora1.Text + " - " +
+                    txtCORegresoHoraLlegada1.Attributes["placeholder"] + txtCORegresoHoraLlegada1.Text + '\n' +
+                    '\n' +
+                    lblCOVueloRegreso2.Text + '\n' +
+                    txtCORegresoOrigen2.Attributes["placeholder"] + txtCORegresoOrigen2.Text + " - " +
+                    txtCORegresoDestino2.Attributes["placeholder"] + txtCORegresoDestino2.Text + " - " +
+                    txtCORegresoAerolinea2.Attributes["placeholder"] + txtCORegresoAerolinea2.Text + " - " +
+                    txtCORegresoNoVuelo2.Attributes["placeholder"] + txtCORegresoNoVuelo2.Text + '\n' +
+                    txtCORegresoFecha2.Attributes["placeholder"] + txtCORegresoFecha2.Text + " - " +
+                    txtCORegresoHora2.Attributes["placeholder"] + txtCORegresoHora2.Text + " - " +
+                    txtCORegresoHoraLlegada2.Attributes["placeholder"] + txtCORegresoHoraLlegada2.Text + '\n' +
+                    '\n';
+                }
+                if (rblCOTraslado.SelectedValue == "sb")
+                {
+                    datosCOTraslado =
+                    "-- VIAJE EN AUTOBUS --" + '\n' + '\n' +
+                    lblCORuta.Text + '\n' +
+                    txtCORutaOrigen.Attributes["placeholder"] + txtCORutaOrigen.Text + " - " +
+                    txtCORutaHoraLlegada.Attributes["placeholder"] + txtCORutaHoraLlegada.Text + '\n' +
+                    '\n';
+                }
+
+                if (rblCOTraslado.SelectedValue != "no") { lblHiddenMensaje.Text += datosCOTraslado; }
+
+                lblHiddenMensaje.Text +=
+                    "- INFORMACI&Oacute;N ADICIONAL" + '\n' +
+                    '\n' +
+                    "Comentarios: " + txtComentarios.Text;
+                lblHiddenMensaje.Text = lblHiddenMensaje.Text.Replace("\n", "<br />");
+
+                //Crear el comando para el UPDATE
+                SqlDSregistro.InsertCommand = "INSERT INTO renanpCongreso3b VALUES ('" +
+                    txtNombre.Text + "', '" +
+                    txtCorreo.Text + "', '" +
+                    txtInstitucion.Text + "', '" +
+                    rblCOTraslado.SelectedItem.Text + "', '" +
+                    txtCORutaOrigen.Text + "', '" +
+                    txtCORutaHoraLlegada.Text + "', '" +
+                    txtCOSalidaOrigen1.Text + "', '" +
+                    txtCOSalidaDestino1.Text + "', '" +
+                    txtCOSalidaAerolinea1.Text + "', '" +
+                    txtCOSalidaNoVuelo1.Text + "', '" +
+                    txtCOSalidaFecha1.Text + "', '" +
+                    txtCOSalidaHora1.Text + "', '" +
+                    txtCOSalidaHoraLlegada1.Text + "', '" +
+                    txtCOSalidaOrigen2.Text + "', '" +
+                    txtCOSalidaDestino2.Text + "', '" +
+                    txtCOSalidaAerolinea2.Text + "', '" +
+                    txtCOSalidaNoVuelo2.Text + "', '" +
+                    txtCOSalidaFecha2.Text + "', '" +
+                    txtCOSalidaHora2.Text + "', '" +
+                    txtCOSalidaHoraLlegada2.Text + "', '" +
+
+                    txtCORegresoOrigen1.Text + "', '" +
+                    txtCORegresoDestino1.Text + "', '" +
+                    txtCORegresoAerolinea1.Text + "', '" +
+                    txtCORegresoNoVuelo1.Text + "', '" +
+                    txtCORegresoFecha1.Text + "', '" +
+                    txtCORegresoHora1.Text + "', '" +
+                    txtCORegresoHoraLlegada1.Text + "', '" +
+                    txtCORegresoOrigen2.Text + "', '" +
+                    txtCORegresoDestino2.Text + "', '" +
+                    txtCORegresoAerolinea2.Text + "', '" +
+                    txtCORegresoNoVuelo2.Text + "', '" +
+                    txtCORegresoFecha2.Text + "', '" +
+                    txtCORegresoHora2.Text + "', '" +
+                    txtCORegresoHoraLlegada2.Text + "', '" +
+
+                    txtComentarios.Text + "', GetDate())";
+
+                correoAlias = "congreso-renanp@cibnor.mx";
+                correoSubject = "Congreso RENANP 2016 - Registro en linea invitados";
+
+                break;
+            #endregion
+
         }
 
         //lblStatus.Text = "Prueba de correo realizada con exito!"; // para pruebas

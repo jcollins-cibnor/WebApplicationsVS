@@ -188,7 +188,7 @@
                     <br />
                     <br />
                     <asp:DropDownList ID="ddlPago" CssClass="input required" runat="server" style="font-family:Consolas;" >
-                        <asp:ListItem Value="...">Opciones de pago (hasta el 15 de septiembre):</asp:ListItem>
+                        <asp:ListItem Value="...">Opciones de pago:</asp:ListItem>
                         <asp:ListItem>Estudiante licenciatura - $1,000.00</asp:ListItem>
                         <asp:ListItem>Estudiante posgrado ----- $1,300.00</asp:ListItem>
                         <asp:ListItem>Profesionista ----------- $3,000.00</asp:ListItem>
@@ -204,6 +204,68 @@
                         <asp:TextBox ID="txtFacturaRfc" class="input required" runat="server" MaxLength="20" placeholder="RFC..." />
                         <asp:TextBox ID="txtFacturaNombre" class="input required" runat="server" MaxLength="200" placeholder="Nombre a facturar..." />
                         <asp:TextBox ID="txtDomicilio" class="input required" runat="server" MaxLength="200" placeholder="Domicilio..." />
+                    </div>
+
+                </div>
+                <%--Congreso en Noviembre, invitados y staff que no pagan --%>
+                <div id="div3b" runat="server" hidden="hidden">
+                    <div id="divCOTraslado" style="border:solid 1px gray;">
+                    
+                        <h4 style="text-align:center;">Itinerario</h4>
+                        <asp:RadioButtonList ID="rblCOTraslado" class="input" runat="server" RepeatDirection="Vertical" style="margin-top:4px;">
+                            <asp:ListItem Value="no"> Me trasladar&eacute; por cuenta propia</asp:ListItem>
+                            <asp:ListItem Value="si" Selected="True"> Requiero traslado aereo</asp:ListItem>
+                            <asp:ListItem Value="sb"> Me trasladar&eacute; por autobus</asp:ListItem>
+                        </asp:RadioButtonList>
+                        <div id="divCOItinerarios" style="text-align:center;">
+                            <p class="inputLabel">VIAJE DE IDA</p>
+                            <asp:Label ID="lblCOVueloSalida1" class="input100w" runat="server" Text="Vuelo inicial >" Font-Bold="True" Width="100px"></asp:Label>
+                            <asp:TextBox ID="txtCOSalidaOrigen1" class="input100w required" runat="server" MaxLength="50" placeholder="Origen: " />
+                            <asp:TextBox ID="txtCOSalidaDestino1" class="input100w" runat="server" MaxLength="50" placeholder="Destino: " />
+                            <asp:TextBox ID="txtCOSalidaAerolinea1" class="input100w" runat="server" MaxLength="50" placeholder="Aerolinea: " />
+                            <asp:TextBox ID="txtCOSalidaNoVuelo1" class="input100w required" runat="server" MaxLength="50" placeholder="No. de Vuelo: " />
+                            <asp:TextBox ID="txtCOSalidaFecha1" class="input100w required" runat="server" MaxLength="50" placeholder="Fecha: " />
+                            <asp:TextBox ID="txtCOSalidaHora1" class="input100w required" runat="server" MaxLength="50" placeholder="Hora de salida: " />
+                            <asp:TextBox ID="txtCOSalidaHoraLlegada1" class="input100w" runat="server" MaxLength="50" placeholder="Hora de llegada: " />
+                            <br />
+                            <asp:Label ID="lblCOVueloSalida2" class="input100w" runat="server" Text="Vuelo escala >" Font-Bold="True" Width="100px"></asp:Label>
+                            <asp:TextBox ID="txtCOSalidaOrigen2" class="input100w" runat="server" MaxLength="50" placeholder="Origen: " />
+                            <asp:TextBox ID="txtCOSalidaDestino2" class="input100w" runat="server" MaxLength="50" placeholder="Destino: " />
+                            <asp:TextBox ID="txtCOSalidaAerolinea2" class="input100w" runat="server" MaxLength="50" placeholder="Aerolinea: " />
+                            <asp:TextBox ID="txtCOSalidaNoVuelo2" class="input100w" runat="server" MaxLength="50" placeholder="No. de Vuelo: " />
+                            <asp:TextBox ID="txtCOSalidaFecha2" class="input100w" runat="server" MaxLength="50" placeholder="Fecha: " />
+                            <asp:TextBox ID="txtCOSalidaHora2" class="input100w" runat="server" MaxLength="50" placeholder="Hora de salida: " />
+                            <asp:TextBox ID="txtCOSalidaHoraLlegada2" class="input100w" runat="server" MaxLength="50" placeholder="Hora de llegada: " />
+
+                            <br /><br />
+                            <p class="inputLabel">VIAJE DE REGRESO</p>
+                            <asp:Label ID="lblCOVueloRegreso1" class="input100w" runat="server" Text="Vuelo inicial >" Font-Bold="True" Width="100px"></asp:Label>
+                            <asp:TextBox ID="txtCORegresoOrigen1" class="input100w required" runat="server" MaxLength="50" placeholder="Origen: " />
+                            <asp:TextBox ID="txtCORegresoDestino1" class="input100w" runat="server" MaxLength="50" placeholder="Destino: " />
+                            <asp:TextBox ID="txtCORegresoAerolinea1" class="input100w" runat="server" MaxLength="50" placeholder="Aerolinea: " />
+                            <asp:TextBox ID="txtCORegresoNoVuelo1" class="input100w required" runat="server" MaxLength="50" placeholder="No. de Vuelo: " />
+                            <asp:TextBox ID="txtCORegresoFecha1" class="input100w required" runat="server" MaxLength="50" placeholder="Fecha: " />
+                            <asp:TextBox ID="txtCORegresoHora1" class="input100w required" runat="server" MaxLength="50" placeholder="Hora de salida: " />
+                            <asp:TextBox ID="txtCORegresoHoraLlegada1" class="input100w" runat="server" MaxLength="50" placeholder="Hora de llegada: " />
+                            <br />
+                            <asp:Label ID="lblCOVueloRegreso2" class="input100w" runat="server" Text="Vuelo escala >" Font-Bold="True" Width="100px"></asp:Label>
+                            <asp:TextBox ID="txtCORegresoOrigen2" class="input100w" runat="server" MaxLength="50" placeholder="Origen: " />
+                            <asp:TextBox ID="txtCORegresoDestino2" class="input100w" runat="server" MaxLength="50" placeholder="Destino: " />
+                            <asp:TextBox ID="txtCORegresoAerolinea2" class="input100w" runat="server" MaxLength="50" placeholder="Aerolinea: " />
+                            <asp:TextBox ID="txtCORegresoNoVuelo2" class="input100w" runat="server" MaxLength="50" placeholder="No. de Vuelo: " />
+                            <asp:TextBox ID="txtCORegresoFecha2" class="input100w" runat="server" MaxLength="50" placeholder="Fecha: " />
+                            <asp:TextBox ID="txtCORegresoHora2" class="input100w" runat="server" MaxLength="50" placeholder="Hora de salida: " />
+                            <asp:TextBox ID="txtCORegresoHoraLlegada2" class="input100w" runat="server" MaxLength="50" placeholder="Hora de llegada: " />
+                                                        
+                            <br />&nbsp;
+                        </div>
+                        <div id="divCORuta" style="text-align:center;">
+                            <asp:Label ID="lblCORuta" class="input100w" runat="server" Text="Ruta >" Font-Bold="True" Width="100px"></asp:Label>
+                            <asp:TextBox ID="txtCORutaOrigen" class="input30percent required" runat="server" MaxLength="50" placeholder="Lugar de origen: " />
+                            <asp:TextBox ID="txtCORutaHoraLlegada" class="input30percent required" runat="server" MaxLength="50" placeholder="Hora de llegada: " />
+                            <br />&nbsp;
+
+                        </div>
                     </div>
 
                 </div>

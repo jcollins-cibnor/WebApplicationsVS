@@ -25,6 +25,11 @@ public partial class renanp2016_consulta : System.Web.UI.Page
                 SqlDSgeneral.SelectCommand = "SELECT * FROM [" + lblEventoId.Text + "]";
                 grvConsultaCongreso2a.Visible = true;
                 break;
+            case "3b":
+                lblEventoId.Text = "renanpCongreso";
+                sqlDScongreso3b.SelectCommand = "SELECT * FROM [renanpCongreso3b]";
+                grvConsultaCongreso3b.Visible = true;
+                break;
             case "3a":
             default:
                 lblEventoId.Text = "renanpCongreso";
@@ -44,6 +49,9 @@ public partial class renanp2016_consulta : System.Web.UI.Page
                 break;
             case "2a":
                 exportarExcel(grvConsultaCongreso2a);
+                break;
+            case "3b":
+                exportarExcel(grvConsultaCongreso3b);
                 break;
             case "3a":
             default:

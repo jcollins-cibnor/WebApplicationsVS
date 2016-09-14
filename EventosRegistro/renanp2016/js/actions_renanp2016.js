@@ -78,6 +78,35 @@ $(document).ready(function () {
         }
     });
 
+    // Para 3b /////////////////////////////////////////////////
+    $('#divCORuta').hide();
+    $("#txtCOSalidaFecha1, #txtCOSalidaFecha2, #txtCORegresoFecha1, #txtCORegresoFecha2").datepicker({
+        showOn: "focus", // "both", // o "button"
+        changeYear: true,
+        //dateFormat: 'yy-mm-dd', //ESTE CAMBIO SOLO ES PARA PRODUCCION
+        dateFormat: 'dd-MM-yy',
+        changeMonth: true
+    });
+
+
+    $('#rblCOTraslado input').click(function () { // El selector aqui debe de ser "[id] input" para que funcione
+        var rblCOvalue = $('#rblCOTraslado input').index(this); // Obtenemos el indice del valor seleccionado
+
+        if (rblCOvalue == 0) { // en caso de mas de dos opciones, aplicamos los "else if" necesarios
+            $('#divCOItinerarios').fadeOut(200); // ocultamos el control
+            $('#divCORuta').fadeOut(200); // ocultamos el control
+        }
+        else if (rblCOvalue == 1) {
+            $('#divCOItinerarios').fadeIn(200); // mostramos el control
+            $('#divCORuta').fadeOut(200); // ocultamos el control
+        }
+        else {
+            $('#divCOItinerarios').fadeOut(200); // mostramos el control
+            $('#divCORuta').fadeIn(200); // ocultamos el control
+        }
+        //alert(rblvalue);
+    });
+
     // Para todos /////////////////////////////////////////////////
 
     $('#btnEnviar').click(function () {
@@ -302,6 +331,54 @@ $(document).ready(function () {
 
                 break;
                 // termina 3a
+            case "3b":
+                if (
+                    valCampo(varNombre) && valEmail(varCorreo) &&
+                    valCamposIguales(varCorreo, varCorreoConfirma) &&
+                    valMaxLengthTextArea(varComentarios, 1000)
+                    ) {
+                    validado = true;
+                }
+                else { validado = false; break; }
+                if ($('#rblCOTraslado input:checked').val() == "si") {
+                    var varCSalidaOrigen1 = document.getElementById('txtCOSalidaOrigen1');
+                    var varCSalidaNoVuelo1 = document.getElementById('txtCOSalidaNoVuelo1');
+                    var varCSalidaFecha1 = document.getElementById('txtCOSalidaFecha1');
+                    var varCSalidaHora1 = document.getElementById('txtCOSalidaHora1');
+                    var varCSalidaNoVuelo2 = document.getElementById('txtCOSalidaNoVuelo2');
+                    var varCSalidaFecha2 = document.getElementById('txtCOSalidaFecha2');
+                    var varCSalidaHora2 = document.getElementById('txtCOSalidaHora2');
+                    var varCRegresoOrigen1 = document.getElementById('txtCORegresoOrigen1');
+                    var varCRegresoNoVuelo1 = document.getElementById('txtCORegresoNoVuelo1');
+                    var varCRegresoFecha1 = document.getElementById('txtCORegresoFecha1');
+                    var varCRegresoHora1 = document.getElementById('txtCORegresoHora1');
+                    var varCRegresoNoVuelo2 = document.getElementById('txtCORegresoNoVuelo2');
+                    var varCRegresoFecha2 = document.getElementById('txtCORegresoFecha2');
+                    var varCRegresoHora2 = document.getElementById('txtCORegresoHora2');
+                    if (valCampo(varCSalidaOrigen1) && valCampo(varCSalidaNoVuelo1) && valCampo(varCSalidaFecha1) && valCampo(varCSalidaHora1) &&
+                        //valCampo(varCSalidaNoVuelo2) && valCampo(varCSalidaFecha2) && valCampo(varCSalidaHora2) &&
+                        valCampo(varCRegresoOrigen1) && valCampo(varCRegresoNoVuelo1) && valCampo(varCRegresoFecha1) && valCampo(varCRegresoHora1)
+                        //&& valCampo(varCRegresoNoVuelo2) && valCampo(varCRegresoFecha2) && valCampo(varCRegresoHora2)
+                        ) {
+                        validado = true;
+                    }
+                    else { validado = false; break; }
+                }
+                else { validado = true; }
+                if ($('#rblCOTraslado input:checked').val() == "sb") {
+                    var varCRutaOrigen = document.getElementById('txtCORutaOrigen');
+                    var varCRutaHoraLlegada = document.getElementById('txtCORutaHoraLlegada');
+                    if (valCampo(varCRutaOrigen) && valCampo(varCRutaHoraLlegada)
+                        ) {
+                        validado = true;
+                    }
+                    else { validado = false; break; }
+                }
+
+
+                // termina 3b
+                break;
+
             default:
                 break;
         }
