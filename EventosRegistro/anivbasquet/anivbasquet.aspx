@@ -12,9 +12,9 @@
 <body>
 <div id="divContainer">
     <header>
-        <img id="logo_izq1" class="logo" src="../_img/logo_40aniv.png" />
+        <img id="logo_izq1" class="logo" src="../_img/logo_aniv.png" />
         <div id="divTitulo">
-            <p id="lblTitulo">XL Aniversario - Torneo de b&aacute;squetbol</p>
+            <p id="lblTitulo">Torneo de b&aacute;squetbol</p>
         </div>
         <h3 id="lblRegistroEnLinea">Registro en L&iacute;nea</h3>
         <img id="logo_der1" class="logo" src="../_img/logo_dei.png" />

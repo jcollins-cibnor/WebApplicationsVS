@@ -12,9 +12,9 @@
 <body>
 <div id="divContainer">
     <header>
-        <img id="logo_izq1" class="logo" src="../_img/logo_40aniv.png" />
+        <img id="logo_izq1" class="logo" src="../_img/logo_aniv.png" />
         <div id="divTitulo">
-            <p id="lblTitulo">XL Aniversario - Torneo de f&uacute;tbol</p>
+            <p id="lblTitulo">Torneo de f&uacute;tbol</p>
         </div>
         <h3 id="lblRegistroEnLinea">Registro en L&iacute;nea</h3>
         <img id="logo_der1" class="logo" src="../_img/logo_dei.png" />
@@ -36,7 +36,10 @@
                 <br />
                 <br />
 
-                <asp:SqlDataSource ID="SqlDScolorcamiseta" runat="server" ConnectionString="<%$ ConnectionStrings:REGWEBConnectionString %>" SelectCommand="SELECT * FROM [anivColorCamisetaFutbol]">
+                <asp:SqlDataSource ID="SqlDScolorcamiseta" runat="server" ConnectionString="<%$ ConnectionStrings:REGWEBConnectionString %>" SelectCommand="SELECT * FROM [anivColorCamisetaFutbol] WHERE ([selected] <> @selected)">
+                    <SelectParameters>
+                        <asp:Parameter DefaultValue="ocupado" Name="selected" Type="String"></asp:Parameter>
+                    </SelectParameters>
                 </asp:SqlDataSource>
 
                 <p class="inputLabel">Selecciona un color de camiseta:</p>
@@ -99,13 +102,7 @@
         SelectCommand="SELECT * FROM [microarreglos2015]" OldValuesParameterFormatString="original_{0}">
     </asp:SqlDataSource>
 </div>
-    <p><asp:Label ID="lblHiddenMensaje" runat="server" Visible="False"></asp:Label></p>
-
-
-
-<!-- FALTA REVISAR EL ESTILO DEL TITULO Y LOS LOGOS, ASI COMO EL INSERT EN LA TABLA NUEVA "anivfutbol" Y REALIZAR PRUEBAS -->
-
-
+<p><asp:Label ID="lblHiddenMensaje" runat="server" Visible="False"></asp:Label></p>
 
 <!-- MENSAJE DE ESPERA -->
 <div id="divMensajeEspera" 
@@ -117,7 +114,6 @@
     <p style="display:block; line-height:150px; font-family:Arial; font-variant:normal; font-size:24px;">
         <b>Se esta procesando su solicitud.</b>
     </p>
-    <%--<progress value="22" max="100"></progress> <img alt="procesando..." src="../_img/icon_loader_blackbars.gif" />--%>
 </div>
 
 <!-- EOF: -->

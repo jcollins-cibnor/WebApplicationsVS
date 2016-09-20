@@ -12,9 +12,9 @@
 <body>
 <div id="divContainer">
     <header>
-        <img id="logo_izq1" class="logo" src="../_img/logo_40aniv.png" />
+        <img id="logo_izq1" class="logo" src="../_img/logo_aniv.png" />
         <div id="divTitulo">
-            <p id="lblTitulo">XL Aniversario - Torneo de boliche</p>
+            <p id="lblTitulo">Torneo de boliche</p>
         </div>
         <h3 id="lblRegistroEnLinea">Registro en L&iacute;nea</h3>
         <img id="logo_der1" class="logo" src="../_img/logo_dei.png" />
@@ -35,33 +35,11 @@
                 <asp:TextBox ID="txtNombreEquipo" class="input" runat="server" MaxLength="50" placeholder="Nombre del equipo..." />
                 <br />
                 <br />
-
-<%--                <asp:SqlDataSource ID="SqlDScolorcamiseta" runat="server" ConnectionString="<%$ ConnectionStrings:REGWEBConnectionString %>" SelectCommand="SELECT * FROM [anivColorCamisetaFutbol]">
-                </asp:SqlDataSource>
-
-                <p class="inputLabel">Selecciona un color de camiseta:</p>
-                <asp:DropDownList ID="ddlColorCamiseta" class="input200w" runat="server" AutoPostBack="True" DataSourceID="SqlDScolorcamiseta" 
-                    DataTextField="color" DataValueField="selected" onselectedindexchanged="ddlColorCamiseta_SelectedIndexChanged">
-                </asp:DropDownList>
-                <asp:Label ID="lblColorStatus" runat="server" Text=""></asp:Label>
-                <br />--%>
-
                 <p class="inputLabel">Integrantes:</p>
                 <asp:TextBox ID="txtNombreI1" class="input" runat="server" MaxLength="100" placeholder="Nombre completo del participante #2..." />
                 <asp:TextBox ID="txtNombreI2" class="input" runat="server" MaxLength="100" placeholder="Nombre completo del participante #3..." />
                 <asp:TextBox ID="txtNombreI3" class="input" runat="server" MaxLength="100" placeholder="Nombre completo del participante #4..." />
                 <asp:TextBox ID="txtNombreI4" class="input" runat="server" MaxLength="100" placeholder="Nombre completo del suplente..." />
-<%--                <asp:TextBox ID="txtNombreI5" class="input" runat="server" MaxLength="100" placeholder="Nombre completo del participante..." />
-                <asp:TextBox ID="txtNombreI6" class="input" runat="server" MaxLength="100" placeholder="Nombre completo del participante..." />
-                <asp:TextBox ID="txtNombreI7" class="input" runat="server" MaxLength="100" placeholder="Nombre completo del participante..." />
-                <asp:TextBox ID="txtNombreI8" class="input" runat="server" MaxLength="100" placeholder="Nombre completo del participante..." />
-                <asp:TextBox ID="txtNombreI9" class="input" runat="server" MaxLength="100" placeholder="Nombre completo del participante..." />
-                <asp:TextBox ID="txtNombreI10" class="input" runat="server" MaxLength="100" placeholder="Nombre completo del participante..." />
-                <asp:TextBox ID="txtNombreI11" class="input" runat="server" MaxLength="100" placeholder="Nombre completo del participante..." />
-                <asp:TextBox ID="txtNombreI12" class="input" runat="server" MaxLength="100" placeholder="Nombre completo del participante..." />
-                <asp:TextBox ID="txtNombreI13" class="input" runat="server" MaxLength="100" placeholder="Nombre completo del participante..." />
-                <asp:TextBox ID="txtNombreI14" class="input" runat="server" MaxLength="100" placeholder="Nombre completo del participante..." />
-                <asp:TextBox ID="txtNombreI15" class="input" runat="server" MaxLength="100" placeholder="Nombre completo del participante..." />--%>
                 <br />
                 <br />
                 <asp:TextBox ID="txtComentarios" class="inputTextArea" runat="server" MaxLength="500" TextMode="MultiLine" Rows="4" placeholder="Comentarios..." />

@@ -152,7 +152,7 @@ $(document).ready(function () {
         //    ) {
 
         var tipoInd = tipoRegistro.item(0).checked.valueOf();
-        var tipoEq = false; // tipoRegistro.item(1).checked.valueOf();
+        var tipoEq = tipoRegistro.item(1).checked.valueOf();
         
         // Obtenemos el valor del tipo de registro AQUI ME QUEDE !!!!!!!!!!!!!!
         if (tipoInd) {

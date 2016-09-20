@@ -12,9 +12,9 @@
 <body>
 <div id="divContainer">
     <header>
-        <img id="logo_izq1" class="logo" src="../_img/logo_40aniv.png" />
+        <img id="logo_izq1" class="logo" src="../_img/logo_aniv.png" />
         <div id="divTitulo">
-            <p id="lblTitulo">XL Aniversario - Torneo de tochito</p>
+            <p id="lblTitulo">Torneo de tochito</p>
         </div>
         <h3 id="lblRegistroEnLinea">Registro en L&iacute;nea</h3>
         <img id="logo_der1" class="logo" src="../_img/logo_dei.png" />
@@ -35,17 +35,6 @@
                 <asp:TextBox ID="txtNombreEquipo" class="input" runat="server" MaxLength="50" placeholder="Nombre del equipo..." />
                 <br />
                 <br />
-
-<%--                <asp:SqlDataSource ID="SqlDScolorcamiseta" runat="server" ConnectionString="<%$ ConnectionStrings:REGWEBConnectionString %>" SelectCommand="SELECT * FROM [anivColorCamisetaFutbol]">
-                </asp:SqlDataSource>
-
-                <p class="inputLabel">Selecciona un color de camiseta:</p>
-                <asp:DropDownList ID="ddlColorCamiseta" class="input200w" runat="server" AutoPostBack="True" DataSourceID="SqlDScolorcamiseta" 
-                    DataTextField="color" DataValueField="selected" onselectedindexchanged="ddlColorCamiseta_SelectedIndexChanged">
-                </asp:DropDownList>
-                <asp:Label ID="lblColorStatus" runat="server" Text=""></asp:Label>
-                <br />--%>
-
                 <p class="inputLabel">Integrantes:</p>
                 <asp:TextBox ID="txtNombreI1" class="input" runat="server" MaxLength="100" placeholder="Nombre completo del participante..." />
                 <asp:TextBox ID="txtNombreI2" class="input" runat="server" MaxLength="100" placeholder="Nombre completo del participante..." />
@@ -101,12 +90,6 @@
 </div>
     <p><asp:Label ID="lblHiddenMensaje" runat="server" Visible="False"></asp:Label></p>
 
-
-
-<!-- FALTA REVISAR EL ESTILO DEL TITULO Y LOS LOGOS, ASI COMO EL INSERT EN LA TABLA NUEVA "anivtochito" Y REALIZAR PRUEBAS -->
-
-
-
 <!-- MENSAJE DE ESPERA -->
 <div id="divMensajeEspera" 
     style="height:300px; width:70%; left:15%; position:absolute; top:30%; margin:1px; border:1px solid #000; background-color:white; text-align:center;">    
@@ -117,7 +100,6 @@
     <p style="display:block; line-height:150px; font-family:Arial; font-variant:normal; font-size:24px;">
         <b>Se esta procesando su solicitud.</b>
     </p>
-    <%--<progress value="22" max="100"></progress> <img alt="procesando..." src="../_img/icon_loader_blackbars.gif" />--%>
 </div>
 
 <!-- EOF: -->

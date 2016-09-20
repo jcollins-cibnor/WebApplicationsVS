@@ -12,9 +12,9 @@
 <body>
 <div id="divContainer">
     <header>
-        <img id="logo_izq1" class="logo" src="../_img/logo_40aniv.png" />
+        <img id="logo_izq1" class="logo" src="../_img/logo_aniv.png" />
         <div id="divTitulo">
-            <p id="lblTitulo">XL Aniversario - Torneo de voleibol</p>
+            <p id="lblTitulo">Torneo de voleibol</p>
         </div>
         <h3 id="lblRegistroEnLinea">Registro en L&iacute;nea</h3>
         <img id="logo_der1" class="logo" src="../_img/logo_dei.png" />
@@ -36,18 +36,11 @@
                 <br />
                 <br />
 
-                <asp:SqlDataSource ID="SqlDScolorcamiseta" runat="server" ConnectionString="<%$ ConnectionStrings:REGWEBConnectionString %>" DeleteCommand="DELETE FROM [AnivColorCamiseta] WHERE [color] = @color" InsertCommand="INSERT INTO [AnivColorCamiseta] ([color], [selected]) VALUES (@color, @selected)" SelectCommand="SELECT * FROM [AnivColorCamiseta]" UpdateCommand="UPDATE [AnivColorCamiseta] SET [selected] = @selected WHERE [color] = @color">
-                    <DeleteParameters>
-                        <asp:Parameter Name="color" Type="String" />
-                    </DeleteParameters>
-                    <InsertParameters>
-                        <asp:Parameter Name="color" Type="String" />
-                        <asp:Parameter Name="selected" Type="String" />
-                    </InsertParameters>
-                    <UpdateParameters>
-                        <asp:Parameter Name="selected" Type="String" />
-                        <asp:Parameter Name="color" Type="String" />
-                    </UpdateParameters>
+                <asp:SqlDataSource ID="SqlDScolorcamiseta" runat="server" ConnectionString="<%$ ConnectionStrings:REGWEBConnectionString %>" SelectCommand="SELECT * FROM [AnivColorCamiseta] WHERE ([selected] <> @selected)">
+                    <SelectParameters>
+                        <asp:Parameter DefaultValue="ocupado" Name="selected" Type="String"></asp:Parameter>
+                    </SelectParameters>
+
                 </asp:SqlDataSource>
 
                 <p class="inputLabel">Selecciona un color de camiseta:</p>
@@ -55,7 +48,6 @@
                     DataTextField="color" DataValueField="selected" onselectedindexchanged="ddlColorCamiseta_SelectedIndexChanged">
                 </asp:DropDownList>
                 <asp:Label ID="lblColorStatus" runat="server" Text=""></asp:Label>
-<%--                <asp:TextBox ID="txtValidaColor" runat="server" BorderStyle="None" ReadOnly="True"></asp:TextBox>--%>
                 <br />
                 <br />
 
@@ -112,13 +104,7 @@
         SelectCommand="SELECT * FROM [microarreglos2015]" OldValuesParameterFormatString="original_{0}">
     </asp:SqlDataSource>
 </div>
-    <p><asp:Label ID="lblHiddenMensaje" runat="server" Visible="False"></asp:Label></p>
-
-
-
-<!-- FALTA REVISAR EL ESTILO DEL TITULO Y LOS LOGOS, ASI COMO EL INSERT EN LA TABLA NUEVA "anivvoleibol" Y REALIZAR PRUEBAS -->
-
-
+<p><asp:Label ID="lblHiddenMensaje" runat="server" Visible="False"></asp:Label></p>
 
 <!-- MENSAJE DE ESPERA -->
 <div id="divMensajeEspera" style="height:300px; width:70%; left:15%; position:absolute; top:30%; margin:1px; border:1px solid #000; background-color:white; text-align:center;">
@@ -129,9 +115,6 @@
     <p style="display:block; line-height:150px; font-family:Arial; font-variant:normal; font-size:24px;">
         <b>Se esta procesando su solicitud.</b>
     </p>
-
-<%--        <progress value="22" max="100"></progress> <img alt="procesando..." src="../_img/icon_loader_blackbars.gif" />--%>
-
 </div>
 
 <!-- EOF: -->

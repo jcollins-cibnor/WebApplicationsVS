@@ -12,9 +12,9 @@
 <body>
 <div id="divContainer">
     <header>
-        <img id="logo_izq1" class="logo" src="../_img/logo_40aniv.png" />
+        <img id="logo_izq1" class="logo" src="../_img/logo_aniv.png" />
         <div id="divTitulo">
-            <p id="lblTitulo">XL Aniversario - Carrera atletica</p>
+            <p id="lblTitulo">Carrera atletica</p>
         </div>
         <h3 id="lblRegistroEnLinea">Registro en L&iacute;nea</h3>
         <img id="logo_der1" class="logo" src="../_img/logo_dei.png" />
@@ -36,16 +36,11 @@
                 </asp:DropDownList>
                 <br />
                 <br />
-                <h2>Opciones de registro...</h2>
-                <fieldset style="font-family:Verdana; font-size:11px;">
-                    <input type="radio" name="rblTipoRegistro" id="rblTipoIndividual" value="Individual" runat="server" />Individual<br />
-<%--                <input type="radio" name="rblTipoRegistro" id="rblTipoEquipo" value="Equipo" runat="server" />Equipo
-                    SE COMENTO LA OPCION DE EQUIPO Y SE MODIFICO EL js    --%>
+                <h2>Opciones de registro</h2>
+                <fieldset style="font-family:Verdana; font-size:11px; padding-left:20px;">
+                    <input type="radio" name="rblTipoRegistro" id="rblTipoIndividual" value="Individual" runat="server" /> Individual<br />
+                    <input type="radio" name="rblTipoRegistro" id="rblTipoEquipo" value="Equipo" runat="server" /> Equipo
                 </fieldset>
-<%--                <asp:RadioButtonList ID="rblTipoRegistro" name="rblTR" class="inputRadio" runat="server" >
-                    <asp:ListItem Value="Individual">Individual</asp:ListItem>
-                    <asp:ListItem Value="Equipo" Selected="True">Equipo</asp:ListItem>
-                </asp:RadioButtonList>--%>
                 <br />
                 <section id="sec2"> <%--ES EL SEPARADOR DE SECCION EL CUAL APARECE CUANDO SE SELECCIONA EQUIPO--%>
                 <asp:TextBox ID="txtNombreEquipo" class="input" runat="server" MaxLength="20" placeholder="Nombre del equipo..." />

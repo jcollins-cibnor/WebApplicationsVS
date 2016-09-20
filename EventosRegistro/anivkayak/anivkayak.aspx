@@ -12,9 +12,9 @@
 <body>
 <div id="divContainer">
     <header>
-        <img id="logo_izq1" class="logo" src="../_img/logo_40aniv.png" />
+        <img id="logo_izq1" class="logo" src="../_img/logo_aniv.png" />
         <div id="divTitulo">
-            <p id="lblTitulo">XL Aniversario - Kayak</p>
+            <p id="lblTitulo">Kayak</p>
         </div>
         <h3 id="lblRegistroEnLinea">Registro en L&iacute;nea</h3>
         <img id="logo_der1" class="logo" src="../_img/logo_dei.png" />
@@ -31,15 +31,6 @@
                 <asp:TextBox ID="txtTelefono" class="input" runat="server" MaxLength="50" placeholder="Telefono de contacto..." />
                 <br />
                 <br />
-<%--                <h2>Datos del equipo</h2>
-                <asp:TextBox ID="txtNombreEquipo" class="input" runat="server" MaxLength="50" placeholder="Nombre del equipo..." />
-                <br />
-                <br />
-
-                <p class="inputLabel">Integrantes:</p>
-                <asp:TextBox ID="txtNombreI1" class="input" runat="server" MaxLength="100" placeholder="Nombre completo de la pareja..." />
-                <br />
-                <br />--%>
                 <asp:TextBox ID="txtComentarios" class="inputTextArea" runat="server" MaxLength="500" TextMode="MultiLine" Rows="4" placeholder="Comentarios..." />
                 <br />
             </div>
