@@ -170,6 +170,7 @@
                         <asp:ListItem Value="...">Modalidad de presentaci&oacute;n...</asp:ListItem>
                         <asp:ListItem>Oral</asp:ListItem>
                         <asp:ListItem>Poster</asp:ListItem>
+                        <asp:ListItem>Asistente</asp:ListItem>
                     </asp:DropDownList>
                     <br />
                     <p class="inputLabel" style="font-weight:900;">
