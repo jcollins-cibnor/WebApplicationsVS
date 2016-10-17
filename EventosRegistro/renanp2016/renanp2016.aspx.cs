@@ -64,6 +64,7 @@ public partial class renanp2016_renanp2016 : System.Web.UI.Page
     protected void btnEnviar_Click(object sender, EventArgs e)
     {
         OperacionesBasicas Opb = new OperacionesBasicas();
+        Dictionary<string, string> filesUploadErrors = new Dictionary<string, string>();
         lblStatus.Text = "";
         var correoAlias = "";
         var correoSubject = "";
@@ -314,11 +315,13 @@ public partial class renanp2016_renanp2016 : System.Web.UI.Page
 
                 if (fuAdjuntoPago.Value.Length > 3) {
                     fileUploadPago = Opb.adjuntarArchivo(fuAdjuntoPago, "~/renanp2016/uploads", txtCorreo.Text);
+                    if (fileUploadPago != "ok") filesUploadErrors.Add("Factura", fileUploadPago);
                 }
 
                 if ((fuAdjuntoCredencial.Value.Length > 3) && (estudiante == "SI"))
                 {
                     fileUploadCredencial = Opb.adjuntarArchivo(fuAdjuntoCredencial, "~/renanp2016/uploads", txtCorreo.Text + "_credencial");
+                    if (fileUploadCredencial != "ok") filesUploadErrors.Add("Credencial", fileUploadPago);
                 }
 
 //                if (fileUploadPago != "ok" || fileUploadCredencial != "ok") {
@@ -495,23 +498,32 @@ public partial class renanp2016_renanp2016 : System.Web.UI.Page
 
         //lblStatus.Text = "Prueba de correo realizada con exito!"; // para pruebas
         //lblStatus.Text += SqlDSregistro.InsertCommand;
-        SqlDSregistro.Insert();
 
-        //ARMAR CUERPO DEL MENSAJE
-        string mensaje = "Gracias, el registro ha sido completado con exito." + '\n' +
-            '\n' +
-            lblHiddenMensaje.Text + '\n' +
+        if (filesUploadErrors.Count == 0) { // Si no hubo errores al subir los archivos, procede...
+            SqlDSregistro.Insert();
+
+            //ARMAR CUERPO DEL MENSAJE
+            string mensaje = "Gracias, el registro ha sido completado con exito." + '\n' +
                 '\n' +
-                '\n' +
-            "Atentamente," + '\n' + "Comite Organizador" + '\n' + "CIBNOR, S.C.";
+                lblHiddenMensaje.Text + '\n' +
+                    '\n' +
+                    '\n' +
+                "Atentamente," + '\n' + "Comite Organizador" + '\n' + "CIBNOR, S.C.";
 
-        mensaje = mensaje.Replace("\n", "<br />");
+            mensaje = mensaje.Replace("\n", "<br />");
 
-        // MANDAMOS EL CORREO
-        Opb.enviarCorreo("-", "-", txtCorreo.Text, correoAlias, "-", correoSubject, mensaje, "normal");
-        //Opb.enviarCorreo("-", "-", txtCorreo.Text, "jcollins@cibnor.mx", "-", correoSubject, mensaje, "normal");
+            // MANDAMOS EL CORREO
+            Opb.enviarCorreo("-", "-", txtCorreo.Text, correoAlias, "-", correoSubject, mensaje, "normal");
+            //Opb.enviarCorreo("-", "-", txtCorreo.Text, "jcollins@cibnor.mx", "-", correoSubject, mensaje, "normal");
 
-        Response.Redirect("~/RegistroOk.aspx?evento=renanp2016");
+            Response.Redirect("~/RegistroOk.aspx?evento=renanp2016");
+        }
+        else { // ... de lo contrario envia el error a la etiqueta y no lo dejes pasar
+            lblStatus.Text = "Favor de revisar lo siguiente:";
+            foreach (KeyValuePair<string, string> kvp in filesUploadErrors) {
+                lblStatus.Text += "<br/>+ Error en: " + kvp.Key + " -- " + kvp.Value;
+            }
+        }
 
     }
 
