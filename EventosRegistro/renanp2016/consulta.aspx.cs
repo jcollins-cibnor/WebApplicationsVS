@@ -33,7 +33,11 @@ public partial class renanp2016_consulta : System.Web.UI.Page
             case "3a":
             default:
                 lblEventoId.Text = "renanpCongreso";
-                SqlDScongreso3a.SelectCommand = "SELECT * FROM [renanpCongreso3a]";
+                SqlDScongreso3a.SelectCommand="SELECT [id],[nombre],[correo],[institucion],[modalidad],[estudiante],[tituloResumen],[autores],[coautores]" +
+                    ",substring([pago],1,LEN([pago])-10) AS tipoDeParticipante,RIGHT([pago],8) AS cantidad" +
+                    ",[factura],[facturaRfc],[facturaNombre],[Domicilio],[comentarios],[registroFecha] " +
+                    "FROM [dbo].[renanpCongreso3a]";
+
                 grvConsultaCongreso3a.Visible = true;
                 break;
         }
@@ -93,11 +97,10 @@ public partial class renanp2016_consulta : System.Web.UI.Page
     {
         Session["liga"] = "./uploads/" + grvConsultaCongreso3a.SelectedRow.Cells[3].Text + ".pdf";
         Response.Redirect(Convert.ToString(Session["liga"]));
-
-
-//        Session["ligaC"] = "./uploads/" + grvConsultaCongreso3a.SelectedRow.Cells[3].Text + "_credencial.pdf";
-        //Response.Redirect(Convert.ToString(Session["ligaC"]));
     }
+
+    // Este procedimiento es el que se tiene que agregar para realizar una consulta dependiendo del valor del campo, el link se agrega en este procedimiento
+    // en el -gridView- se agrega el atributo: OnRowDataBound="grvConsultaCongreso3a_RowDataBound" el cual se ejecuta con el clic en el campo
     protected void grvConsultaCongreso3a_RowDataBound(object sender, GridViewRowEventArgs e)
     {
         if (e.Row.RowType == DataControlRowType.DataRow)

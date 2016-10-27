@@ -5,38 +5,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Consulta de Registros</title>
-
-    <script type="text/javascript">
-<%--        var path = document.location.pathname;
-        alert(path);
-
-        var dir = path.substring(1, path.lastIndexOf('/'));
-//        alert(path + ", dir: " + dir);
-//        window.location.replace("./" + dir + ".aspx");
-
-        var gridview = "grvConsultaCongreso3a";
-        var table = document.getElementById(gridview);
-        var gridViewRowCount = document.getElementById(gridview).rows.length;
-
-        $("#" + gridview + " tbody tr").each(function (index) {
-            var cCorreo, cEstudiante;
-            $(this).children("td").each(function (index2) {
-                switch (index2) {
-                    case 3:
-                        cCorreo = $(this).text(); break;
-                    case 6:
-                        cEstudiante = $(this).text();
-                        $(this).text() += "-" + cCorreo;
-                        if (cEstudiante == "NO") {
-                            $(this).text() += "-" + cCorreo;
-                        }
-                        break;
-                }
-
-            })
-        })--%>
-    </script>
-
 </head>
 <body>
 <form id="form1" runat="server">
@@ -159,7 +127,7 @@
             <RowStyle BackColor="White" ForeColor="#003399" Font-Names="Arial" Font-Size="9pt" />
             <Columns>
                 <asp:CommandField SelectText="Ver" ShowSelectButton="True" />
-                <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
+                <asp:BoundField DataField="id" HeaderText="id" ReadOnly="True" InsertVisible="False" SortExpression="id" />
                 <asp:BoundField DataField="nombre" HeaderText="nombre" SortExpression="nombre" />
                 <asp:BoundField DataField="correo" HeaderText="correo" SortExpression="correo" />
                 <asp:BoundField DataField="institucion" HeaderText="institucion" SortExpression="institucion" />
@@ -168,7 +136,8 @@
                 <asp:BoundField DataField="tituloResumen" HeaderText="tituloResumen" SortExpression="tituloResumen" />
                 <asp:BoundField DataField="autores" HeaderText="autores" SortExpression="autores" />
                 <asp:BoundField DataField="coautores" HeaderText="coautores" SortExpression="coautores" />
-                <asp:BoundField DataField="pago" HeaderText="pago" SortExpression="pago" />
+                <asp:BoundField DataField="tipoDeParticipante" HeaderText="tipoDeParticipante" SortExpression="tipoDeParticipante" ReadOnly="True" />
+                <asp:BoundField DataField="cantidad" HeaderText="cantidad" SortExpression="cantidad" ReadOnly="True" />
                 <asp:BoundField DataField="factura" HeaderText="factura" SortExpression="factura" />
                 <asp:BoundField DataField="facturaRfc" HeaderText="facturaRfc" SortExpression="facturaRfc" />
                 <asp:BoundField DataField="facturaNombre" HeaderText="facturaNombre" SortExpression="facturaNombre" />
@@ -178,8 +147,17 @@
             </Columns>
             <HeaderStyle BackColor="White" Font-Bold="True" ForeColor="Black" Font-Names="Arial" Font-Size="9pt" />
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDScongreso3a" runat="server" ConnectionString="<%$ ConnectionStrings:REGWEBConnectionString %>" 
-            SelectCommand="SELECT * FROM [renanpCongreso3a]">
+        <asp:SqlDataSource ID="SqlDScongreso3a" runat="server" ConnectionString="<%$ ConnectionStrings:REGWEBConnectionString %>"
+            SelectCommand="SELECT [id],[nombre],[correo],[institucion],[modalidad],[estudiante],[tituloResumen],[autores],[coautores]
+      ,substring([pago],1,LEN([pago])-10) AS tipoDeParticipante
+      ,RIGHT([pago],8) AS cantidad
+      ,[factura]
+      ,[facturaRfc]
+      ,[facturaNombre]
+      ,[Domicilio]
+      ,[comentarios]
+      ,[registroFecha]
+  FROM [dbo].[renanpCongreso3a]">
         </asp:SqlDataSource>
     </div>
         <div>
