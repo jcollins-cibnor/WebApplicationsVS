@@ -13,8 +13,8 @@
 <div id="divContainer">
     <header>
         <img id="logo_izq1" class="logo" src="../_img/logo_cib_oficial.gif" />
-        <div id="divTitulo" style="background-image:url(../_img/logo_genomica2017.png); background-repeat:no-repeat; background-position:center;">
-            <p id="lblTitulo">Morfolog&iacute;a y taxonom&iacute;a de diatomeas: bases para su identificaci&oacute;n como requerimiento b&aacute;sico para su utilizaci&oacute;n</p>
+        <div id="divTitulo">
+            <p id="lblTitulo">Taller de An&aacute;lisis de datos NGS: RNAseq y metagen&oacute;mica</p>
         </div>
         <h3 id="lblRegistroEnLinea">Registro en L&iacute;nea</h3>
         <img id="logo_der1" class="logo" src="../_img/logo_conacyt.png" />

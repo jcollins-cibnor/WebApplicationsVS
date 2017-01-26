@@ -22,7 +22,8 @@
     <div>
         <br />
         &nbsp;
-        <asp:Button ID="btnExportar" runat="server" onclick="btnExportar_Click" Text="Exportar a Excel" />
+        <asp:Button ID="btnConsultar" runat="server" Text="Realizar consulta" OnClick="btnConsultar_Click" />
+        &nbsp;<asp:Button ID="btnExportar" runat="server" onclick="btnExportar_Click" Text="Exportar a Excel" Enabled="False" />
         <br />
         Evento:
         <asp:Label ID="lblEventoId" runat="server" Font-Bold="True" Font-Names="Verdana" Font-Size="18px" ForeColor="#333399" Text="genomica2017"></asp:Label>
@@ -53,7 +54,7 @@
             <HeaderStyle BackColor="White" Font-Bold="True" ForeColor="Black" Font-Names="Arial" Font-Size="9pt" />
         </asp:GridView>
     </div>
-    <asp:SqlDataSource ID="SqlDSgeneral" runat="server" ConnectionString="<%$ ConnectionStrings:REGWEBConnectionString %>" SelectCommand="SELECT * FROM [genomica2017]">
+    <asp:SqlDataSource ID="SqlDSgeneral" runat="server" ConnectionString="<%$ ConnectionStrings:REGWEBConnectionString %>" >
     </asp:SqlDataSource>
     <br />
 
