@@ -22,7 +22,8 @@
     <div>
         <br />
         &nbsp;
-        <asp:Button ID="btnExportar" runat="server" onclick="btnExportar_Click" Text="Exportar a Excel" />
+        <asp:Button ID="btnConsultar" runat="server" Text="Realizar consulta" OnClick="btnConsultar_Click" />
+        &nbsp;<asp:Button ID="btnExportar" runat="server" onclick="btnExportar_Click" Text="Exportar a Excel" />
         <br />
         Evento:
         <asp:Label ID="lblEventoId" runat="server" Font-Bold="True" Font-Names="Verdana" Font-Size="18px" ForeColor="#333399" Text="expociencias"></asp:Label>
@@ -34,31 +35,18 @@
             BorderStyle="None" BorderWidth="1px" CellPadding="4" OnSelectedIndexChanged="grvConsulta_SelectedIndexChanged" AutoGenerateColumns="False" DataKeyNames="id">
             <RowStyle BackColor="White" ForeColor="#003399" Font-Names="Arial" Font-Size="9pt" />
             <Columns>
+                <asp:CommandField SelectText="Ver" ShowSelectButton="True" />
                 <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
-                <asp:BoundField DataField="nombreEst1" HeaderText="nombreEst1" SortExpression="nombreEst1" />
-                <asp:BoundField DataField="correoEst1" HeaderText="correoEst1" SortExpression="correoEst1" />
-                <asp:BoundField DataField="telefonoEst1" HeaderText="telefonoEst1" SortExpression="telefonoEst1" />
-                <asp:BoundField DataField="sexo" HeaderText="sexo" SortExpression="sexo" />
-                <asp:BoundField DataField="edad" HeaderText="edad" SortExpression="edad" />
-                <asp:BoundField DataField="numeroEst" HeaderText="numeroEst" SortExpression="numeroEst" />
-                <asp:BoundField DataField="nombreEst2" HeaderText="nombreEst2" SortExpression="nombreEst2" />
-                <asp:BoundField DataField="correoEst2" HeaderText="correoEst2" SortExpression="correoEst2" />
-                <asp:BoundField DataField="nombreEst3" HeaderText="nombreEst3" SortExpression="nombreEst3" />
-                <asp:BoundField DataField="correoEst3" HeaderText="correoEst3" SortExpression="correoEst3" />
-                <asp:BoundField DataField="nombreAsesor" HeaderText="nombreAsesor" SortExpression="nombreAsesor" />
-                <asp:BoundField DataField="correoAsesor" HeaderText="correoAsesor" SortExpression="correoAsesor" />
-                <asp:BoundField DataField="telefonoAsesor" HeaderText="telefonoAsesor" SortExpression="telefonoAsesor" />
+                <asp:BoundField DataField="nombres" HeaderText="nombres" SortExpression="nombres" />
+                <asp:BoundField DataField="apellidos" HeaderText="apellidos" SortExpression="apellidos" />
+                <asp:BoundField DataField="correo" HeaderText="correo" SortExpression="correo" />
                 <asp:BoundField DataField="institucion" HeaderText="institucion" SortExpression="institucion" />
-                <asp:BoundField DataField="domicilio" HeaderText="domicilio" SortExpression="domicilio" />
-                <asp:BoundField DataField="municipio" HeaderText="municipio" SortExpression="municipio" />
-                <asp:BoundField DataField="proyecto" HeaderText="proyecto" SortExpression="proyecto" />
-                <asp:BoundField DataField="categoria" HeaderText="categoria" SortExpression="categoria" />
-                <asp:BoundField DataField="area" HeaderText="area" SortExpression="area" />
-                <asp:BoundField DataField="descipcionProyecto" HeaderText="descipcionProyecto" SortExpression="descipcionProyecto" />
-                <asp:BoundField DataField="nombreHuesped" HeaderText="nombreHuesped" SortExpression="nombreHuesped" />
-                <asp:BoundField DataField="justificacion" HeaderText="justificacion" SortExpression="justificacion" />
-                <asp:BoundField DataField="claveRegistro" HeaderText="claveRegistro" SortExpression="claveRegistro" />
-                <asp:BoundField DataField="fechaRegistro" HeaderText="fechaRegistro" SortExpression="fechaRegistro" />
+                <asp:BoundField DataField="factura" HeaderText="factura" SortExpression="factura" />
+                <asp:BoundField DataField="facturaRFC" HeaderText="facturaRFC" SortExpression="facturaRFC" />
+                <asp:BoundField DataField="facturaNombre" HeaderText="facturaNombre" SortExpression="facturaNombre" />
+                <asp:BoundField DataField="facturaDomicilio" HeaderText="facturaDomicilio" SortExpression="facturaDomicilio" />
+                <asp:BoundField DataField="comentarios" HeaderText="comentarios" SortExpression="comentarios" />
+                <asp:BoundField DataField="registrofecha" HeaderText="registrofecha" SortExpression="registrofecha" />
             </Columns>
             <FooterStyle BackColor="#99CCCC" ForeColor="#003399" />
             <PagerStyle BackColor="#99CCCC" ForeColor="#003399" HorizontalAlign="Left" />
@@ -66,7 +54,7 @@
             <HeaderStyle BackColor="White" Font-Bold="True" ForeColor="Black" Font-Names="Arial" Font-Size="9pt" />
         </asp:GridView>
     </div>
-    <asp:SqlDataSource ID="SqlDSgeneral" runat="server" ConnectionString="<%$ ConnectionStrings:REGWEBConnectionString %>" SelectCommand="SELECT * FROM [expociencias]">
+    <asp:SqlDataSource ID="SqlDSgeneral" runat="server" ConnectionString="<%$ ConnectionStrings:REGWEBConnectionString %>" >
     </asp:SqlDataSource>
     <br />
 

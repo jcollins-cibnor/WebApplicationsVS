@@ -13,6 +13,13 @@ public partial class RegistroOk : System.Web.UI.Page
 
         switch (nomEv)
         {
+            case "genomica2017":
+                logo_izq1.ImageUrl = "./_img/logo_cib_oficial.gif";
+                logo_der1.ImageUrl = "./_img/logo_conacyt.png";
+
+                lblTituloEvento.Text = "Taller de An&aacute;lisis de datos NGS: RNAseq y metagen&oacute;mica";
+                btnAceptar.PostBackUrl = "http://www.cibnor.gob.mx/eventos/genomica2017.html";
+                break;
             case "simulators2016":
                 logo_izq1.ImageUrl = "./_img/logo_cib_oficial.gif";
                 logo_der1.ImageUrl = "./_img/logo_conacyt.png";

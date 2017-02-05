@@ -23,7 +23,7 @@
         <br />
         &nbsp;
         <asp:Button ID="btnConsultar" runat="server" Text="Realizar consulta" OnClick="btnConsultar_Click" />
-        &nbsp;<asp:Button ID="btnExportar" runat="server" onclick="btnExportar_Click" Text="Exportar a Excel" Enabled="False" />
+        &nbsp;<asp:Button ID="btnExportar" runat="server" onclick="btnExportar_Click" Text="Exportar a Excel" />
         <br />
         Evento:
         <asp:Label ID="lblEventoId" runat="server" Font-Bold="True" Font-Names="Verdana" Font-Size="18px" ForeColor="#333399" Text="genomica2017"></asp:Label>
