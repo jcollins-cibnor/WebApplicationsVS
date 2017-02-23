@@ -23,10 +23,12 @@ public partial class expociencias_expociencias : System.Web.UI.Page
     {
         int numeroRegistros = 0;
 
-        SqlConnection con = new SqlConnection(@"Data source=200.23.162.100; uid=cibnor; pwd=Pass@word1; Initial Catalog=REGWEB");
+//        SqlConnection con = new SqlConnection(@"Data source=200.23.162.100; uid=cibnor; pwd=Pass@word1; Initial Catalog=REGWEB");
+        SqlConnection con = new SqlConnection(@"Data source=200.23.162.100; uid=sdbCib; pwd=m@rC0rtes1; Initial Catalog=REGWEB");
         SqlCommand cmd = new SqlCommand();
         cmd.Connection = con;
-        cmd.CommandText = "SELECT * FROM expociencias WHERE ([categoria] = '" + ddlCategoria.SelectedItem.Text + "' AND [area] = '" + ddlArea.SelectedItem.Text + "')";
+        cmd.CommandText = "SELECT * FROM expociencias WHERE ([categoria] = '" + 
+                            ddlCategoria.SelectedItem.Text + "' AND [area] = '" + ddlArea.SelectedItem.Text + "')";
         DataSet ds = new DataSet();
         SqlDataAdapter da = new SqlDataAdapter(cmd);
         da.Fill(ds);
@@ -50,10 +52,7 @@ public partial class expociencias_expociencias : System.Web.UI.Page
                 string fileUpload = "";
                 fileUpload = Opb.adjuntarArchivo(fuArchivo, "~/expociencias/uploads", txtCorreoEst1.Text);
             }
-            /*
-             * FALTA AGREGAR SUBIR EL ARCHIVO Y VALIDAR
-             * 
-             */
+
             lblStatus.Text = "";
             lblHiddenClave.Text = ddlCategoria.SelectedValue + ddlArea.SelectedValue + Convert.ToString(numRegistrosClave() + 1);
 
