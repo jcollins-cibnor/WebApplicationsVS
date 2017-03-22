@@ -75,7 +75,7 @@ public partial class biorreactores_biorreactores : System.Web.UI.Page
 
             
             // Mandamos correo(from, psswd, to, [cc | "-"], [cco | "-"], subject, msg, priority)
-            OpbCorreo.enviarCorreo("-","-", txtCorreo.Text, "xgodinez@cibnor.mx", "biorreactores@cibnor.mx", "biorreactores - Registro en linea", mensaje, "normal");
+            OpbCorreo.enviarCorreo("-","-", txtCorreo.Text, "xgodinez@cibnor.mx", "biorreactores2017@cibnor.mx", "biorreactores2017 - Registro en linea", mensaje, "normal");
 
             // Para pruebas
             // OpbCorreo.enviarCorreo("-", "-", txtCorreo.Text, "jcollins@cibnor.mx", "-", "Curso biorreactores - Registro en linea", mensaje, "normal");

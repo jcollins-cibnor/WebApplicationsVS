@@ -46,12 +46,10 @@ public class OperacionesBasicas
     {
         System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage();
         mail.To.Add(destino);
-        if (copia != "-")
-        {
+        if (copia != "-") {
             mail.CC.Add(copia);
         }
-        if (copiaoculta != "-")
-        {
+        if (copiaoculta != "-") {
             mail.Bcc.Add(copiaoculta);
         }
         mail.Subject = asunto;
@@ -59,8 +57,9 @@ public class OperacionesBasicas
         mail.Body = mensaje;
         mail.BodyEncoding = System.Text.Encoding.UTF8;
         mail.IsBodyHtml = true;
-        switch (prioridad)
-        {
+        mail.ReplyToList.Add(new MailAddress(copiaoculta));
+
+        switch (prioridad) {
             case "baja":
                 mail.Priority = MailPriority.Low;
                 break;
@@ -72,14 +71,13 @@ public class OperacionesBasicas
                 break;
         }
         SmtpClient client = new SmtpClient();
+
         //Add the Creddentials- use your own email id and password
-        if (origen != "-")
-        {
+        if (origen != "-") {
             mail.From = new MailAddress(origen, origen, System.Text.Encoding.UTF8);
             client.Credentials = new System.Net.NetworkCredential(origen, passwd);
         }
-        else
-        {
+        else {
             client.Credentials = new System.Net.NetworkCredential("eventos.cibnor@cibnor.mx", "Eventos.1");
             mail.From = new MailAddress("eventos.cibnor@cibnor.mx", "eventos.cibnor@cibnor.mx", System.Text.Encoding.UTF8);
         }
@@ -88,22 +86,19 @@ public class OperacionesBasicas
         client.Host = "smtp.gmail.com";
         client.EnableSsl = true; //Gmail works on Server Secured Layer
 
-        try
-        {
+        try {
             client.Send(mail);
         }
-        catch (Exception ex)
-        {
+        catch (Exception ex) {
             Exception ex2 = ex;
             string errorMessage = string.Empty;
-            while (ex2 != null)
-            {
+            while (ex2 != null) {
                 errorMessage += ex2.ToString();
                 ex2 = ex2.InnerException;
             }
-            //            HttpContext.Current.Response.Write(errorMessage);
             return errorMessage;
         }
+
         return "-";
     }
 
