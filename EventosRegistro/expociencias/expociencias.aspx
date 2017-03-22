@@ -169,15 +169,14 @@
 </div>
 
 <!-- MENSAJE DE ESPERA -->
-<div id="divMensajeEspera" style="height:60%; width:99%; position:absolute; top:20%; margin:1px; border:1px solid #000; background-color:white; text-align:center;">
+<div id="divMensajeEspera" 
+    style="height:300px; width:70%; left:15%; position:absolute; top:30%; margin:1px; border:1px solid #000; background-color:white; text-align:center;">    
 
-    <p style="display:block; height:20%; line-height:50px; font-family:Consolas, Arial; font-variant:normal; font-size:24px; background-color:#000; color:#FFF;">
+    <p style="display:block; height:50%; line-height:150px; font-family:Consolas, Arial; font-variant:normal; font-size:24px; background-color:#000; color:#FFF;">
         <b>Por favor, espere unos momentos...</b>
     </p>
-    <p style="display:block; line-height:100px; font-family:Arial; font-variant:normal; font-size:24px;">
-        <br />
+    <p style="display:block; line-height:150px; font-family:Arial; font-variant:normal; font-size:24px;">
         <b>Se esta procesando su solicitud.</b>
-        <br />
     </p>
 </div>
 <!-- EOF: MENSAJE DE ESPERA -->

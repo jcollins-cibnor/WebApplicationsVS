@@ -13,6 +13,13 @@ public partial class RegistroOk : System.Web.UI.Page
 
         switch (nomEv)
         {
+            case "biorreactores":
+                logo_izq1.ImageUrl = "./_img/logo_cib_oficial.gif";
+                logo_der1.ImageUrl = "./_img/logo_conacyt.png";
+                lblTituloEvento.Text = "Curso: Fundamentos Sobre Biorreactores, Diseño e Implementaci&oacute;n de Bioprocesos Aplicados a la Biotecnologia de Microalgas";
+                btnAceptar.PostBackUrl = "http://www.cibnor.gob.mx/eventos/biorreactores.html";
+                break;
+
             case "genomica2017":
                 logo_izq1.ImageUrl = "./_img/logo_cib_oficial.gif";
                 logo_der1.ImageUrl = "./_img/logo_conacyt.png";

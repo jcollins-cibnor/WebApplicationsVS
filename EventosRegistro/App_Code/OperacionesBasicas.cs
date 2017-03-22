@@ -27,10 +27,10 @@ public class OperacionesBasicas
     {
         int numeroRegistros = 0;
 
-        SqlConnection con = new SqlConnection(@"Data source=200.23.162.100; uid=cibnor; pwd=Pass@word1; Initial Catalog=REGWEB");
+        SqlConnection con = new SqlConnection(@"Data source=200.23.162.199; uid=sdbCib; pwd=m@rC0rtes1; Initial Catalog=REGWEB");
+        //SqlConnection con = new SqlConnection(@"Data source=172.16.200.199; uid=sdbCib; pwd=m@rC0rtes1; Initial Catalog=REGWEB");//remote tests
         SqlCommand cmd = new SqlCommand();
         cmd.Connection = con;
-        //cmd.CommandText = "SELECT * FROM expociencias2014 WHERE ([correoEst1] = '" + txtCorreoEst1.Text + "')";
         cmd.CommandText = "SELECT * FROM " + tabla + " WHERE ([" + campo + "] = '" + texto + "')";
         DataSet ds = new DataSet();
         SqlDataAdapter da = new SqlDataAdapter(cmd);

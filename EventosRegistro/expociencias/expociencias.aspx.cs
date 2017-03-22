@@ -23,8 +23,8 @@ public partial class expociencias_expociencias : System.Web.UI.Page
     {
         int numeroRegistros = 0;
 
-//        SqlConnection con = new SqlConnection(@"Data source=200.23.162.100; uid=cibnor; pwd=Pass@word1; Initial Catalog=REGWEB");
-        SqlConnection con = new SqlConnection(@"Data source=200.23.162.100; uid=sdbCib; pwd=m@rC0rtes1; Initial Catalog=REGWEB");
+        SqlConnection con = new SqlConnection(@"Data source=200.23.162.199; uid=sdbCib; pwd=m@rC0rtes1; Initial Catalog=REGWEB");
+        //SqlConnection con = new SqlConnection(@"Data source=172.16.200.199; uid=sdbCib; pwd=m@rC0rtes1; Initial Catalog=REGWEB");//remote test
         SqlCommand cmd = new SqlCommand();
         cmd.Connection = con;
         cmd.CommandText = "SELECT * FROM expociencias WHERE ([categoria] = '" + 
@@ -64,7 +64,7 @@ public partial class expociencias_expociencias : System.Web.UI.Page
                     "Nombre completo del estudiante 3: " + txtNombreEst3.Text + '\n' +
                     "Correo electr&oacute;nico: " + txtCorreoEst3.Text + '\n';
             }
-
+            #region cuerpo del mensaje
             lblHiddenMensaje.Text =
                 "- DATOS GENERALES DEL AUTOR(ES) Y ASESOR(ES)" + '\n' +
                 '\n' +
@@ -102,10 +102,11 @@ public partial class expociencias_expociencias : System.Web.UI.Page
                 '\n' +
                 '\n' +
                 "Clave de registro: " + lblHiddenClave.Text;
-
             lblHiddenMensaje.Text = lblHiddenMensaje.Text.Replace("\n", "<br />");
+            #endregion
 
-//            txtDescripcionProyecto.Text = txtDescripcionProyecto.Text.Replace("\n", "<br />");
+            #region InsertCommand
+            //txtDescripcionProyecto.Text = txtDescripcionProyecto.Text.Replace("\n", "<br />");
             //Crear el comando para el UPDATE
             SqlDSregistro.InsertCommand = "INSERT INTO expociencias VALUES ('" +
                 txtNombreEst1.Text + "', '" +
@@ -134,6 +135,7 @@ public partial class expociencias_expociencias : System.Web.UI.Page
                 txtJustificacion.Text + "', '" +
                 lblHiddenClave.Text + "', '" +
                 rblTipoPago.SelectedValue + "', GetDate())";
+            #endregion
 
             SqlDSregistro.Insert();
 
@@ -149,7 +151,7 @@ public partial class expociencias_expociencias : System.Web.UI.Page
 
             // MANDAMOS EL CORREO
             Opb.enviarCorreo("-", "-", txtCorreoEst1.Text, "expociencias@cibnor.mx", "xgodinez@cibnor.mx", "Expociencias - Registro en linea", lblHiddenMensaje.Text, "normal");
-//            Opb.enviarCorreo("-", "-", txtCorreoEst1.Text, "jcollins@cibnor.mx", "-", "Expociencias - Registro en linea", lblHiddenMensaje.Text, "normal"); // para pruebas
+            //Opb.enviarCorreo("-", "-", txtCorreoEst1.Text, "jcollins@cibnor.mx", "-", "TEST_Expociencias - Registro en linea", lblHiddenMensaje.Text, "normal"); // para pruebas
 
             Response.Redirect("~/RegistroOk.aspx?evento=expociencias");
         }
