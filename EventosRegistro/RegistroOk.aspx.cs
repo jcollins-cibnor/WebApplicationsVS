@@ -13,6 +13,13 @@ public partial class RegistroOk : System.Web.UI.Page
 
         switch (nomEv)
         {
+            case "barras2017":
+                logo_izq1.ImageUrl = "./_img/logo_cib_oficial.gif";
+                logo_der1.ImageUrl = "./_img/logo_conacyt.png";
+                lblTituloEvento.Text = "Cuarta Reunión Nacional de la Red Temática Código de Barras de la vida";
+                btnAceptar.PostBackUrl = "http://www.cibnor.gob.mx/eventos/barras2017.html";
+                break;
+
             case "biorreactores":
                 logo_izq1.ImageUrl = "./_img/logo_cib_oficial.gif";
                 logo_der1.ImageUrl = "./_img/logo_conacyt.png";
@@ -34,12 +41,12 @@ public partial class RegistroOk : System.Web.UI.Page
                 lblTituloEvento.Text = "Computer simulators in conservation genetics";
                 btnAceptar.PostBackUrl = "http://www.cibnor.gob.mx/eventos/simulators2016.html";
                 break;
-            case "renanp2016":
+            case "renanpCurso":
                 logo_izq1.ImageUrl = "./_img/logo_cib_oficial.gif";
                 logo_der1.ImageUrl = "./_img/logo_conacyt.png";
 
-                lblTituloEvento.Text = "RENANP 2016";
-                btnAceptar.PostBackUrl = "http://www.cibnor.gob.mx/eventos/renanp2016.html";
+                lblTituloEvento.Text = "Curso RENANP";
+                btnAceptar.PostBackUrl = "http://areas-naturales-protegidas.org/renanp/";
                 break;
             case "genetica2016":
                 logo_izq1.ImageUrl = "./_img/logo_cib_oficial.gif";

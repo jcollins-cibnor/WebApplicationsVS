@@ -51,13 +51,15 @@ public class OperacionesBasicas
         }
         if (copiaoculta != "-") {
             mail.Bcc.Add(copiaoculta);
+            mail.ReplyToList.Add(new MailAddress(copiaoculta));
+            /// Se agrega a este "if" la asignacion del ReplyTo, temporalmente, hasta modificar la funcion completa y que el dato se reciba por parametro.
+            /// Entonces se agregara su correspondiente "if" similar al de -c- y -cco-
         }
         mail.Subject = asunto;
         mail.SubjectEncoding = System.Text.Encoding.UTF8;
         mail.Body = mensaje;
         mail.BodyEncoding = System.Text.Encoding.UTF8;
         mail.IsBodyHtml = true;
-        mail.ReplyToList.Add(new MailAddress(copiaoculta));
 
         switch (prioridad) {
             case "baja":

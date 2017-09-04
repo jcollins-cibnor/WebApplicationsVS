@@ -28,7 +28,7 @@ public partial class jovenespace_jovenespace : System.Web.UI.Page
         else // No existe, adelante
         {
             string fileUpload = "";
-            fileUpload = adjuntarArchivo();
+            fileUpload = Opb.adjuntarArchivo(fuArchivo, "~/jovenespace/uploads", txtCorreo.Text); // adjuntarArchivo();
             if (fileUpload == "ok") // Se adjunto el archivo? entonces genera la clave y registralo
              {
                 //lblStatus.Text = "NO existe";
@@ -108,27 +108,20 @@ public partial class jovenespace_jovenespace : System.Web.UI.Page
                     lblHiddenClave.Text + "', '" +
                     "1" + "', GetDate())";
 
-                /// 
-                /// SIGUE PROBAR EL ENVIO DE CORREO Y REGISTRO
-                /// DESPUES, QUITAMOS EL COMENTARIO A LAS VALIDACIONES en el .js,
-                /// la validacion del correo de aqui abajo
-                /// Y SUBIMOS AL SERVER
-                /// 
                 OperacionesBasicas OpbCorreo = new OperacionesBasicas();
-//                SqlDSregistro.Insert(); // para pruebas
-//                OpbCorreo.enviarCorreo("eventos.cibnor@cibnor.mx", "", txtCorreo.Text, "-", "-", "Jovenes PACE - Registro web", lblHiddenMensaje.Text, "normal"); // para pruebas
 
                 int registroOk = 1; // Para validar si el registro se ejecuto en el server
                 try
                 {
                     SqlDSregistro.Insert();
-                    //    // Mandamos correo(from, password, to, [cc | "-"], [cco | "-"], subject, msg, priority) Se le pone "-" al from y password para que use las crendenciales de eventos.cibnor@
-                    OpbCorreo.enviarCorreo("-", "-", txtCorreo.Text, "jovenes.pace@cibnor.mx", "-", "Jovenes PACE - Registro web", lblHiddenMensaje.Text, "normal");
+                    // Mandamos correo(from, password, to, [cc | "-"], [cco | "-"], subject, msg, priority) Con "-" en from y password usa las crendenciales de eventos.cibnor@
+                    //OpbCorreo.enviarCorreo("-", "-", txtCorreo.Text, "-", "jcollins@cibnor.mx", "Jovenes PACE - Registro web", lblHiddenMensaje.Text, "normal"); // para pruebas
+                    OpbCorreo.enviarCorreo("-", "-", txtCorreo.Text, "-", "jovenes.pace@cibnor.mx", "Jovenes PACE - Registro web", lblHiddenMensaje.Text, "normal");
                 }
                 catch (Exception ex)
                 {
-                    OpbCorreo.enviarCorreo("eventos.cibnor@cibnor.mx", "", "jcollins@cibnor.mx", "-", "-",
-                        "Error Jovenes PACE", "ex.Message: " + ex.Message + " - " + txtCorreo.Text + " - ex.InnerException.Message: " + ex.InnerException.Message, "normal");
+                    OpbCorreo.enviarCorreo("-", "-", "jcollins@cibnor.mx", "-", "-", "Error_jovenesPACE", 
+                                           "ex.Message: " + ex.Message + " - " + txtCorreo.Text + " - ex.InnerException.Message: " + ex.InnerException.Message, "normal");
 
                     registroOk = 0;
                     lblStatus.Text = "Hubo un problema al procesar su registro, favor de intentarlo de nuevo mas tarde. El webmaster ya ha sido notificado.";
