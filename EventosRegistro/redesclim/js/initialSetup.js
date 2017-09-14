@@ -117,7 +117,7 @@ function validarFormulario(e)
     else {
         $('#btnLoading').removeClass('hidden');
         $('#btnEnviar').addClass('hidden');
-        e.preventDefault(); // Detiene el envio del formulario
+        //e.preventDefault(); // Detiene el envio del formulario
     }
 }
 

@@ -18,41 +18,41 @@
         <div class="row">
             <div class="col-md-12">
                 <br />
-                <div class="media"><%-- DIV PARA EL TITULO CON IMAGEN A LA DERECHA --%>
+                <div class="media"><%-- DIV PARA  TITULO CON IMAGEN A LA DERECHA --%>
                     <div class="media-body">
                         <h2 class="media-heading">REDESClim 2017</h2>
-                        <p>Reunión Nacional</p>
+                        <p>Quinta Reunión Nacional</p>
                     </div>
                     <div class="media-right">
                         <img src="images/logo_redesclim.png" class="media-object" style="width:150px" />
                     </div>
                 </div>
-
                 <hr />
-                <form class="form-horizontal form1" id="form1" name="form1" runat="server"> <%--INICIO DEL FORMULARIO--%>
+                <%--INICIO DEL FORMULARIO--%>
+                <form class="form-horizontal form1" id="form1" name="form1" runat="server"> 
                     <div class="form-group">
                         <label for="nombre" class="col-sm-2 control-label">Nombres</label>
                         <div class="col-sm-10">
-                            <asp:TextBox class="form-control required" id="nombres" placeholder="Nombres" runat="server"></asp:TextBox>
-<%--                            <input class="form-control" type="text" id="nombres" placeholder="Nombres" />--%>
+                            <%--<asp:TextBox class="form-control required" id="nombres" placeholder="Nombres" runat="server"></asp:TextBox>--%>
+                            <input class="form-control" type="text" id="nombres" placeholder="Nombres" runat="server" />
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="apellido" class="col-sm-2 control-label">Apellidos</label>
                         <div class="col-sm-10">
-                            <asp:TextBox class="form-control" type="text" id="apellidos" placeholder="Apellidos" runat="server"></asp:TextBox>
-<%--                            <input class="form-control" type="text" id="apellidos" placeholder="Apellidos" />--%>
+                            <%--<asp:TextBox class="form-control" type="text" id="apellidos" placeholder="Apellidos" runat="server"></asp:TextBox>--%>
+                            <input class="form-control" type="text" id="apellidos" placeholder="Apellidos" runat="server" />
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="correo" class="col-sm-2 control-label">Correo</label>
                         <div class="col-sm-10">
-                            <asp:TextBox class="form-control" type="email" id="correo" placeholder="Correo" runat="server"></asp:TextBox>
-<%--                            <input class="form-control" type="text" id="correo" placeholder="Correo" />--%>
+                            <%--<asp:TextBox class="form-control" type="email" id="correo" placeholder="Correo" runat="server"></asp:TextBox>--%>
+                            <input class="form-control" type="text" id="correo" placeholder="Correo" runat="server" />
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="correo" class="col-sm-2 control-label">Instituci&oacute;n</label>
+                        <label for="institucion" class="col-sm-2 control-label">Instituci&oacute;n</label>
                         <div class="col-sm-10">
                             <input class="form-control" type="text" id="institucion" placeholder="Institución" runat="server" />
                         </div>
@@ -179,7 +179,14 @@
                         </div>
 
                     </div>
-
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" id="chkRequiereHospedaje" name="chkRequiereHospedaje" value="SI" runat="server" />
+                                Requiero hospedaje en hotel sede
+                            </label>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <div class="col-sm-12">
                             <textarea class="form-control" id="comentarios" rows="3" placeholder="Comentarios adicionales" maxlength="10000" runat="server"></textarea>
@@ -192,8 +199,10 @@
                     </div>
                     <asp:Button id="btnEnviar" class="btn btn-primary btn-lg" type="submit" runat="server" Text="Enviar" OnClick="btnEnviar_Click" />
                     <button id="btnLoading" class="btn btn-lg btn-warning disabled hidden">
-                        <%-- Clases que realizan la animacion: glyphicon-refresh glyphicon-refresh-animate, removidas temporalmente por demostración --%>
-                        <span class="glyphicon"></span> Registro validado correctamente, gracias.
+                        <%-- Clases que realizan la animacion: glyphicon-refresh glyphicon-refresh-animate, removidas en caso de demostración, van en el siguiente "span" --%>
+                        <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> 
+                        Enviando registro...
+                        <%--Registro validado correctamente, gracias.--%>
                     </button>
                     <br /><br />
                 </form>
