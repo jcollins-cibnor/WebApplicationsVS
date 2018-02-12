@@ -66,7 +66,7 @@ public partial class anivdomino_anivdomino : System.Web.UI.Page
         {
             SqlDSregistro.Insert();
             //    // Mandamos correo(from, password, to, [cc | "-"], [cco | "-"], subject, msg, priority) Se le pone "-" al from y password para que use las crendenciales de eventos.cibnor@
-            OpbCorreo.enviarCorreo("-", "-", txtCorreo.Text, "juanvega04@cibnor.mx", "eventos@cibnor.mx", "Domino - Registro web", mensaje, "normal");
+            OpbCorreo.enviarCorreo("-", "-", txtCorreo.Text, "asauceda@cibnor.mx", "eventos@cibnor.mx", "Domino - Registro web", mensaje, "normal");
         }
         catch (Exception ex)
         {

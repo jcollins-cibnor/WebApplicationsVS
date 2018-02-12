@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="anivvoleibol_Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="imagenes_Default" %>
 
 <!DOCTYPE html>
 
@@ -10,9 +10,11 @@
         var path = document.location.pathname;
         var dirfull = path.substring(1, path.lastIndexOf('/'));
         var dirlast = dirfull.substring(dirfull.lastIndexOf('/') + 1, dirfull.length);
-                
-        // window.location.replace("./" + dirlast + ".aspx"); // Cuando el registro se declara cerrado, se comenta esta linea y se habilita la siguiente
-        window.location.replace("../RegistroCerrado.aspx");
+
+        //        alert(dirfull + "-" + dirlast);   
+        //window.location.replace("./" + dirlast + ".aspx");
+        window.location.replace("https://docs.google.com/forms/d/e/1FAIpQLSd2AaiPQ8neBIoMARwZ2oMZxRaIB07r4-_MEydBoF5-HdFpfw/viewform?usp=sf_link");
+
     </script>
 </head>
 <body>
