@@ -61,8 +61,10 @@ public partial class expociencias_expociencias : System.Web.UI.Page
                 equipo +=
                     "Nombre completo del estudiante 2: " + txtNombreEst2.Text + '\n' +
                     "Correo electr&oacute;nico: " + txtCorreoEst2.Text + '\n' +
+                    "Talla playera unisex: " + ddlTallaEst2.SelectedValue + '\n' +
                     "Nombre completo del estudiante 3: " + txtNombreEst3.Text + '\n' +
-                    "Correo electr&oacute;nico: " + txtCorreoEst3.Text + '\n';
+                    "Correo electr&oacute;nico: " + txtCorreoEst3.Text + '\n' +
+                    "Talla playera unisex: " + ddlTallaEst3.SelectedValue + '\n';
             }
             #region cuerpo del mensaje
             lblHiddenMensaje.Text =
@@ -70,6 +72,7 @@ public partial class expociencias_expociencias : System.Web.UI.Page
                 '\n' +
                 "Nombre completo del estudiante titular: " + txtNombreEst1.Text + '\n' +
                 "Correo electr&oacute;nico: " + txtCorreoEst1.Text + '\n' +
+                "Talla playera unisex: " + ddlTallaEst1.SelectedValue + '\n' +
                 "Tel&eacute;fono: " + txtTelefonoEst1.Text + '\n' +
                 "Sexo: " + ddlSexoEst1.SelectedValue + '\n' +
                 "Edad: " + txtEdadEst1.Text + '\n' +
@@ -111,14 +114,17 @@ public partial class expociencias_expociencias : System.Web.UI.Page
             SqlDSregistro.InsertCommand = "INSERT INTO expociencias VALUES ('" +
                 txtNombreEst1.Text + "', '" +
                 txtCorreoEst1.Text + "', '" +
+                ddlTallaEst1.SelectedValue + "', '" +
                 txtTelefonoEst1.Text + "', '" +
                 ddlSexoEst1.SelectedValue + "', '" +
                 txtEdadEst1.Text + "', '" +
                 rblNumeroEstudiantes.SelectedValue + "', '" +
                 txtNombreEst2.Text + "', '" +
                 txtCorreoEst2.Text + "', '" +
+                ddlTallaEst2.SelectedValue + "', '" +
                 txtNombreEst3.Text + "', '" +
                 txtCorreoEst3.Text + "', '" +
+                ddlTallaEst3.SelectedValue + "', '" +
 
                 txtNombreAsesor.Text + "', '" +
                 txtCorreoAsesor.Text + "', '" +

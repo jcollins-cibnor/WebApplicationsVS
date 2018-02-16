@@ -42,6 +42,14 @@
                 </asp:DropDownList>
                 <asp:TextBox ID="txtEdadEst1" class="input100w" runat="server" MaxLength="2" placeholder="Edad en a&ntilde;os..." />
                 <br />
+                <asp:DropDownList ID="ddlTallaEst1" CssClass="input200w" runat="server" >
+                    <asp:ListItem Value="...">Talla de playera (unisex)...</asp:ListItem>
+                    <asp:ListItem>XS</asp:ListItem>
+                    <asp:ListItem>S</asp:ListItem>
+                    <asp:ListItem>M</asp:ListItem>
+                    <asp:ListItem>L</asp:ListItem>
+                    <asp:ListItem>XL</asp:ListItem>
+                </asp:DropDownList>
                 <asp:RadioButtonList ID="rblNumeroEstudiantes" class="input" runat="server" RepeatDirection="Horizontal" style="margin-top:4px;">
                     <asp:ListItem Selected="True" Value="1"> Registro individual</asp:ListItem>
                     <asp:ListItem Value="2 - 3"> Equipo de 2 &oacute; 3 estudiantes</asp:ListItem>
@@ -50,9 +58,26 @@
                 <div id="divEquipo" style="border:solid 1px gray;">
                     <asp:TextBox ID="txtNombreEst2" class="input46percent" runat="server" MaxLength="100" placeholder="Nombre completo del estudiante 2..." />
                     <asp:TextBox ID="txtCorreoEst2" class="input46percent" runat="server" MaxLength="50" placeholder="Correo electr&oacute;nico..." />
+                    <asp:DropDownList ID="ddlTallaEst2" CssClass="input200w" runat="server" >
+                        <asp:ListItem Value="...">Talla de playera (unisex)...</asp:ListItem>
+                        <asp:ListItem>XS</asp:ListItem>
+                        <asp:ListItem>S</asp:ListItem>
+                        <asp:ListItem>M</asp:ListItem>
+                        <asp:ListItem>L</asp:ListItem>
+                        <asp:ListItem>XL</asp:ListItem>
+                    </asp:DropDownList>                    
                     <br />
                     <asp:TextBox ID="txtNombreEst3" class="input46percent" runat="server" MaxLength="100" placeholder="Nombre completo del estudiante 3..." />
                     <asp:TextBox ID="txtCorreoEst3" class="input46percent" runat="server" MaxLength="50" placeholder="Correo electr&oacute;nico..." />
+                    <asp:DropDownList ID="ddlTallaEst3" CssClass="input200w" runat="server" >
+                        <asp:ListItem Value="...">Talla de playera (unisex)...</asp:ListItem>
+                        <asp:ListItem>XS</asp:ListItem>
+                        <asp:ListItem>S</asp:ListItem>
+                        <asp:ListItem>M</asp:ListItem>
+                        <asp:ListItem>L</asp:ListItem>
+                        <asp:ListItem>XL</asp:ListItem>
+                    </asp:DropDownList>                    
+                    <br />
                     <br />
                 </div>
 
@@ -109,6 +134,7 @@
                 </asp:DropDownList>
                 <asp:TextBox ID="txtDescripcionProyecto" class="inputTextArea" runat="server" MaxLength="1000" TextMode="MultiLine" Rows="4" 
                     placeholder="Escribe una descripcion del proyecto donde se explique de forma general: objetivos, desarrollo e impacto social..." />
+                <p class="inputLabel">Resumen de 1000 caracteres como m&aacute;ximo.</p>
 
                 <br />
                 <br />
